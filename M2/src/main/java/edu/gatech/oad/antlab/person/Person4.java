@@ -21,7 +21,7 @@ public class Person4 {
   }
     /**
      * This method should return a string
-     * where each character is 1 greater 
+     * where each character is 1 greater
      * than its previous value.  So
      * given "abc123" it should return
      * "bcd234".
@@ -30,8 +30,12 @@ public class Person4 {
      * @return the modified string
      */
     private String calc(String input) {
-      //Person 4 put your implementation here
-      return null;
+      String out = "";
+      for (int i = 0; i < input.length(); i++) {
+	Char ch = input.charAt(i) + 1;
+	out += ch;
+      }
+      return out;
     }
     
     /**
