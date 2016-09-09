@@ -1,9 +1,7 @@
 package edu.gatech.oad.antlab.pkg1;
 
 
-import edu.cs2335.antlab.pkg3.*;
-import edu.gatech.oad.antlab.person.*;
-import edu.gatech.oad.antlab.pkg2.*;
+import edu.gatech.oad.antlab.person.Person4;
 
 
 /**
@@ -65,8 +63,8 @@ import edu.gatech.oad.antlab.pkg2.*;
 		  toPrint += p2.toString("jiacino3");
 		  //Person3 replace P3 with your name
 		  //and gburdell3 with your gt id
-		  Person3 p3 = new Person3("P3");
-		  toPrint += p3.toString("gburdell3");
+		  Person3 p3 = new Person3("Brian Kalish");
+		  toPrint += p3.toString("bkalish3");
                   //Person4 replace P4 with your name
                   //and gburdell4 with your gt id
                   Person4 p4 = new Person4("Nicolas McGarry");
