@@ -8,8 +8,7 @@ apply plugin: 'java'
 //Define the contents of the jar file
 jar {
     manifest {
-        'Main-Class' : 'edu.gatech.oad.antlab.pkg1.AntLabMain',
-        'Class-Path': '../../lib/resources.jar'
+        attributes 'Implementation-Title': 'Gradle Quickstart', 'Implementation-Version': version , 'Main-Class' : 'edu.gatech.oad.antlab.pkg1.AntLabMain', 'Class-Path': '../../lib/resources.jar'
     }
 }
 
