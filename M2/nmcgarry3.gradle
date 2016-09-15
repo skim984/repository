@@ -1,0 +1,18 @@
+apply plugin: 'java'
+
+defaultTasks 'jar'
+
+jar {
+	manifest {
+		attributes 'Implementation-Title' : 'N. McGarry Gradle Build',  'Implementation-Version': '1.0',  'Main-Class': 'edu.gatech.oad.antlab.pkg1.AntLabMain', 'Class-Path' : '../../M2/lib/resources.jar'
+	}
+}
+
+repositories { 
+	mavenCentral()
+}
+
+dependencies { 
+	compile files('./lib/resources.jar')
+}
+
