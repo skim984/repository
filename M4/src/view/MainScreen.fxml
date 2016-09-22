@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainScreenController">
+    <top>
+        <ToolBar prefHeight="25.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <items>
+                <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#btnLogoutAction" text="Logout" />
+            </items>
+        </ToolBar>
+    </top>
+</BorderPane>

@@ -1,47 +1,35 @@
 package controller;
 
-import fxapp.MainFXApplication;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 
+import javafx.event.ActionEvent;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+
 /**
- * The controller for the root/main window
- *
+ * Created by Sunpil Kim on 9/22/2016.
  */
 public class MainScreenController {
-
-    /** reference back to mainApplication if needed */
-    private MainFXApplication mainApplication;
-
-    /**
-     * allow for calling back to the main application code if necessary
-     * @param main the reference to the FX Application instance
-     * */
-    public void setMainApp(MainFXApplication main) {
-        mainApplication = main;
-    }
-
-    /**
-     * Close menu item event handler
-     */
     @FXML
-    private void handleCloseMenu() {
-        System.exit(0);
-
-    }
-
-    /**
-     * About menu item event handler
-     */
-    @FXML
-    private void handleAboutMenu() {
+    private void btnLogoutAction(ActionEvent event) throws IOException {
+        ((Node)event.getSource()).getScene().getWindow().hide();
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("M3 Individual Project");
-        alert.setHeaderText("About");
-        alert.setContentText("Student Registration with code from Marco Jakob\nWebsite: http://code.makery.ch");
-
+        alert.setTitle("Logout success!");
+        alert.setHeaderText("Thank you for visiting!");
         alert.showAndWait();
-
+        Parent root = FXMLLoader.load(getClass().getResource("../view/WelcomeScreen.fxml"));
+        // Show the scene containing the root layout.
+        Stage stage = new Stage();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        // Set the Main App title
+        stage.setTitle("Welcome!");
+        stage.show();
     }
-
 }
