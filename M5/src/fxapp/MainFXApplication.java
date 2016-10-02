@@ -195,8 +195,8 @@ public class MainFXApplication extends Application {
             // Set the person into the controller.
             ProfileScreenController controller = loader.getController();
             controller.setAccount(currentAccount);
-            System.out.println("hi");
             controller.setProfile(currentAccount);
+            controller.setDialogStage(dialogStage);
 
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();

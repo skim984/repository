@@ -4,6 +4,7 @@ import fxapp.MainFXApplication;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import model.Account;
 import model.AccountType;
 
@@ -31,6 +32,17 @@ public class ProfileScreenController {
 
     public Account getAccount() {
         return account;
+    }
+
+    private Stage _dialogStage;
+
+    /**
+     * Sets the stage of this dialog.
+     *
+     * @param dialogStage the stage for this dialog
+     */
+    public void setDialogStage(Stage dialogStage) {
+        _dialogStage = dialogStage;
     }
 
     /**
@@ -71,12 +83,15 @@ public class ProfileScreenController {
 
     @FXML
     private void handleSummitPressed() {
-
+        this.getAccount().getProfile().setEmail(emailField.getText());
+        this.getAccount().getProfile().setAddress(addressField.getText());
+        this.getAccount().getProfile().setTitle(titleField.getText());
+        _dialogStage.close();
     }
 
     @FXML
     private void handleCancelPressed() {
-
+        _dialogStage.close();
     }
 
 
