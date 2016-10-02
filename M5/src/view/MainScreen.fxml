@@ -4,11 +4,13 @@
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainScreenController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainScreenController">
     <top>
         <ToolBar prefHeight="25.0" prefWidth="600.0" BorderPane.alignment="CENTER">
             <items>
-                <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#btnLogoutAction" text="Logout" />
+                <Button fx:id="createProfileButton" mnemonicParsing="false" onAction="#btnCreateProfileAction" text="Create Profile" />
+            <Button fx:id="editProfileButton" mnemonicParsing="false" onAction="#btnEditProfileAction" text="Edit Profile" />
+            <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#btnLogoutAction" text="Logout" />
             </items>
         </ToolBar>
     </top>
