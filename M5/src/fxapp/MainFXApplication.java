@@ -1,9 +1,6 @@
 package fxapp;
 
-import controller.LoginScreenController;
-import controller.MainScreenController;
-import controller.RegisterScreenController;
-import controller.WelcomeScreenController;
+import controller.*;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import model.Account;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -28,6 +26,17 @@ public class MainFXApplication extends Application {
 
     /** the main layout for the main window */
     private BorderPane rootLayout;
+
+    /** the current account id*/
+    private Account currentAccount;
+
+    public void setcurrentAccount(Account account) {
+        currentAccount = account;
+    }
+
+    public Account getCurrentAccount() {
+        return currentAccount;
+    }
 
     /**
      * return a reference to the main window stage
@@ -124,7 +133,7 @@ public class MainFXApplication extends Application {
 
             // Create the dialog Stage.
             Stage dialogStage = new Stage();
-            dialogStage.setTitle("Edit Student");
+            dialogStage.setTitle("Register!");
             dialogStage.initModality(Modality.WINDOW_MODAL);
             dialogStage.initOwner(mainScreen);
             Scene scene = new Scene(page);
@@ -170,27 +179,30 @@ public class MainFXApplication extends Application {
 
     public void showProfile() {
         try {
+
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainFXApplication.class.getResource("../view/RegisterScreen.fxml"));
+            loader.setLocation(MainFXApplication.class.getResource("../view/ProfileScreen.fxml"));
             AnchorPane page = loader.load();
 
             // Create the dialog Stage.
             Stage dialogStage = new Stage();
-            dialogStage.setTitle("Edit Student");
+            dialogStage.setTitle("Profile");
             dialogStage.initModality(Modality.WINDOW_MODAL);
             dialogStage.initOwner(mainScreen);
             Scene scene = new Scene(page);
             dialogStage.setScene(scene);
 
             // Set the person into the controller.
-            RegisterScreenController controller = loader.getController();
-            controller.setDialogStage(dialogStage);
+            ProfileScreenController controller = loader.getController();
+            controller.setAccount(currentAccount);
+            System.out.println("hi");
+            controller.setProfile(currentAccount);
 
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
 
         } catch (IOException e) {
-            LOGGER.log(Level.SEVERE, "Failed to find the fxml file for RegisterScreen!!");
+            LOGGER.log(Level.SEVERE, "Failed to find the fxml file for ProfileScreen!!");
             e.printStackTrace();
         }
     }

@@ -1,16 +1,12 @@
 package controller;
 
 import fxapp.MainFXApplication;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.Account;
 import model.Model;
 
 
@@ -32,6 +28,7 @@ public class LoginScreenController {
 
     @FXML private javafx.scene.control.Button cancelLoginButton;
 
+    Account currentAccount;
     /**
      * Setup the main application link so we can call methods there
      *
@@ -46,6 +43,7 @@ public class LoginScreenController {
     private void btnLoginAction() throws IOException {
         //First validate the data to insure it is at least reasonable
         if (isInputValid()) {
+            mainApplication.setcurrentAccount(currentAccount);
             mainApplication.showMain();
         }
 
@@ -66,7 +64,9 @@ public class LoginScreenController {
         if (loginPasswordField.getText() == null || loginPasswordField.getText().length() == 0) {
             errorMessage += "No valid Password entered!\n";
         }
-        if (!Model.getInstance().findAccount(loginUserField.getText(), loginPasswordField.getText())) {
+        currentAccount = Model.getInstance().
+                findAccount(loginUserField.getText(), loginPasswordField.getText());
+        if (currentAccount == null) {
             errorMessage += "ID or Password are not matched!\n";
         }
 

@@ -20,6 +20,9 @@ public class Model {
      */
     private Model () {
         accounts.add(new Account("user", "pass", AccountType.AD));
+        accounts.get(0).getProfile().setEmail("ezweb28@gmail.com");
+        accounts.get(0).getProfile().setAddress("Georgia");
+        accounts.get(0).getProfile().setTitle("Student");
     }
 
     /**
@@ -51,20 +54,20 @@ public class Model {
         return true;
     }
 
-    public boolean findAccount(String id, String password) {
+    public Account findAccount(String id, String password) {
         //go through each account looking for duplicate id   O(n)
         for (Account s : accounts) {
             //check id
             if (s.getId().equals(id)) {
                 //check password
                 if (s.getPassword().equals(password)) {
-                    return true;
+                    return s;
                 }
             }
         }
         //never found the id
         //return the fail signal
-        return false;
+        return null;
     }
 
 }

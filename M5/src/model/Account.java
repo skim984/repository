@@ -2,6 +2,8 @@ package model;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  * Created by Sunpil Kim on 10/1/2016.
@@ -13,8 +15,15 @@ public class Account {
     /** the account password*/
     private StringProperty _password = new SimpleStringProperty();
 
-    /** the school code for the course */
+    /** the account type for the account */
     private StringProperty _accountType = new SimpleStringProperty();
+
+    /** the account type for the account */
+    private Profile _profile = new Profile();
+
+    public Profile getProfile() {
+        return _profile;
+    }
 
     /**
      * Makes a new Course

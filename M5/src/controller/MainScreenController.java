@@ -34,6 +34,7 @@ public class MainScreenController {
     @FXML
     private void btnCreateEditProfileAction() {
 
+        mainApplication.showProfile();
     }
 
     @FXML
