@@ -1,14 +1,16 @@
 package fxapp;
 
+import controller.LoginScreenController;
+import controller.MainScreenController;
+import controller.RegisterScreenController;
 import controller.WelcomeScreenController;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -48,9 +50,17 @@ public class MainFXApplication extends Application {
      */
     private void initRootLayout(Stage mainScreen) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../view/WelcomeScreen.fxml"));
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainFXApplication.class.getResource("../view/WelcomeScreen.fxml"));
+            AnchorPane welcomeLayout = loader.load();
+
+            // Give the controller access to the Login app.
+            WelcomeScreenController controller = loader.getController();
+            controller.setMainApp(this);
+
+
             // Show the scene containing the root layout.
-            Scene scene = new Scene(root);
+            Scene scene = new Scene(welcomeLayout);
             mainScreen.setScene(scene);
             // Set the Main App title
             mainScreen.setTitle("Welcome!");
@@ -58,7 +68,109 @@ public class MainFXApplication extends Application {
 
         } catch (IOException e) {
             //error on load, so log it
+            LOGGER.log(Level.SEVERE, "Failed to find the fxml file for WelcomeScreen!!");
+            e.printStackTrace();
+        }
+    }
+
+    public void showLogin() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainFXApplication.class.getResource("../view/LoginScreen.fxml"));
+            AnchorPane page = loader.load();
+
+            // Show the scene containing the root layout.
+            Scene scene = new Scene(page);
+            mainScreen.setScene(scene);
+
+            //Give the controller access to the main app.
+            LoginScreenController controller = loader.getController();
+            controller.setMainApp(this);
+
+            // Set the Main App title
+            mainScreen.setTitle("Log In!");
+            mainScreen.show();
+
+        } catch (IOException e) {
+            LOGGER.log(Level.SEVERE, "Failed to find the fxml file for LoginScreen!!");
+            e.printStackTrace();
+        }
+    }
+
+    public void showMain() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainFXApplication.class.getResource("../view/MainScreen.fxml"));
+            rootLayout = loader.load();
+
+            //Give the controller access to the main app.
+            MainScreenController controller = loader.getController();
+            controller.setMainApp(this);
+            Scene scene = new Scene(rootLayout);
+            mainScreen.setScene(scene);
+            mainScreen.setTitle("Main Page");
+            mainScreen.show();
+        } catch (IOException e) {
             LOGGER.log(Level.SEVERE, "Failed to find the fxml file for MainScreen!!");
+            e.printStackTrace();
+        }
+    }
+
+    public void showRegister() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainFXApplication.class.getResource("../view/RegisterScreen.fxml"));
+            AnchorPane page = loader.load();
+            // Load a new root layout from fxml file.
+            // Create the dialog Stage.
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Edit Student");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(mainScreen);
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+
+            // Set the person into the controller.
+            RegisterScreenController controller = loader.getController();
+            controller.setDialogStage(dialogStage);
+
+            // Show the dialog and wait until the user closes it
+            dialogStage.showAndWait();
+
+//            return controller.isOkClicked();
+//        Stage stage = new Stage();
+//        Scene scene = new Scene(root);
+//        stage.setScene(scene);
+//        stage.setTitle("Register Page");
+//        stage.show();
+        } catch (IOException e) {
+            LOGGER.log(Level.SEVERE, "Failed to find the fxml file for RegisterScreen!!");
+            e.printStackTrace();
+        }
+    }
+
+
+    public void showWelcome() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainFXApplication.class.getResource("../view/WelcomeScreen.fxml"));
+            AnchorPane welcomeLayout = loader.load();
+
+            // Give the controller access to the Login app.
+            WelcomeScreenController controller = loader.getController();
+            controller.setMainApp(this);
+
+
+            // Show the scene containing the root layout.
+            Scene scene = new Scene(welcomeLayout);
+            mainScreen.setScene(scene);
+            // Set the Main App title
+            mainScreen.setTitle("Welcome!");
+            mainScreen.show();
+
+        } catch (IOException e) {
+            //error on load, so log it
+            LOGGER.log(Level.SEVERE, "Failed to find the fxml file for WelcomeScreen!!");
             e.printStackTrace();
         }
     }

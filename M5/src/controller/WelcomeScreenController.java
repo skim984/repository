@@ -1,12 +1,8 @@
 package controller;
 
+import fxapp.MainFXApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -15,25 +11,27 @@ import java.io.IOException;
  */
 public class WelcomeScreenController {
 
+    /** reference back to mainApplication if needed */
+    private MainFXApplication mainApplication;
+
+    /**
+     * allow for calling back to the main application code if necessary
+     * @param main the reference to the FX Application instance
+     * */
+    public void setMainApp(MainFXApplication main) {
+        mainApplication = main;
+    }
+
     @FXML
     private void btnLoginAction(ActionEvent event) throws IOException {
-        ((Node)(event.getSource())).getScene().getWindow().hide();
-        Parent root = FXMLLoader.load(getClass().getResource("../view/LoginScreen.fxml"));
-        Stage stage = new Stage();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle("Login Page");
-        stage.show();
+        mainApplication.showLogin();
+
     }
 
     @FXML
     private void btnRegisterAction(ActionEvent event) throws IOException {
-        ((Node)(event.getSource())).getScene().getWindow().hide();
-        Parent root = FXMLLoader.load(getClass().getResource("../view/RegisterScreen.fxml"));
-        Stage stage = new Stage();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle("Register Page");
-        stage.show();
+        mainApplication.showRegister();
+
+
     }
 }

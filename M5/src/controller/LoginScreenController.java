@@ -1,5 +1,6 @@
 package controller;
 
+import fxapp.MainFXApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +21,9 @@ import java.io.IOException;
  * Created by Sunpil Kim on 9/22/2016.
  */
 public class LoginScreenController {
+    /** a link back to the main application class */
+    private MainFXApplication mainApplication;
+
     @FXML
     private TextField loginUserField;
 
@@ -28,18 +32,21 @@ public class LoginScreenController {
 
     @FXML private javafx.scene.control.Button cancelLoginButton;
 
+    /**
+     * Setup the main application link so we can call methods there
+     *
+     * @param mainFXApplication a reference (link) to our main class
+     */
+    public void setMainApp(MainFXApplication mainFXApplication) {
+
+        mainApplication = mainFXApplication;
+    }
+
     @FXML
     private void btnLoginAction(ActionEvent event) throws IOException {
         //First validate the data to insure it is at least reasonable
         if (isInputValid()) {
-            ((Node)(event.getSource())).getScene().getWindow().hide();
-            // Load a new root layout from fxml file.
-            Parent root = FXMLLoader.load(getClass().getResource("../view/MainScreen.fxml"));
-            Stage stage = new Stage();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setTitle("Main Page");
-            stage.show();
+            mainApplication.showMain();
         }
 
     }
@@ -69,6 +76,7 @@ public class LoginScreenController {
         } else {
             // Show the error message if bad data
             Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.initOwner(mainApplication.getMainScreen());
             alert.setTitle("Invalid Fields");
             alert.setHeaderText("Please correct invalid fields");
             alert.setContentText(errorMessage);
@@ -82,12 +90,7 @@ public class LoginScreenController {
     private void btnCancelAction() throws IOException {
         Stage stage = (Stage) cancelLoginButton.getScene().getWindow();
         stage.close();
-        Parent root = FXMLLoader.load(getClass().getResource("../view/WelcomeScreen.fxml"));
-        Stage welcomeStage = new Stage();
-        Scene scene = new Scene(root);
-        welcomeStage.setScene(scene);
-        welcomeStage.setTitle("Login Page");
-        welcomeStage.show();
+        mainApplication.showWelcome();
     }
 
 }

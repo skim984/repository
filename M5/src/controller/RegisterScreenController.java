@@ -1,5 +1,6 @@
 package controller;
 
+import fxapp.MainFXApplication;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -28,6 +29,30 @@ public class RegisterScreenController {
     @FXML
     private ComboBox<AccountType> registerTypefield = new ComboBox<>();
 
+    private Stage _dialogStage;
+
+    /** a link back to the main application class */
+    private MainFXApplication mainApplication;
+
+    /**
+     * Setup the main application link so we can call methods there
+     *
+     * @param mainFXApplication a reference (link) to our main class
+     */
+    public void setMainApp(MainFXApplication mainFXApplication) {
+
+        mainApplication = mainFXApplication;
+    }
+
+    /**
+     * Sets the stage of this dialog.
+     *
+     * @param dialogStage the stage for this dialog
+     */
+    public void setDialogStage(Stage dialogStage) {
+        _dialogStage = dialogStage;
+    }
+
     /** the student whose data is being manipulated */
     private Account _account = new Account();
 
@@ -40,28 +65,9 @@ public class RegisterScreenController {
         registerTypefield.setValue(AccountType.UR);
     }
 
-//    /**
-//     * Sets the student to be edited in the dialog.
-//     *
-//     * @param account the student who will be edited
-//     */
-//    public void setAccount(Account account) {
-//        //remember the current student
-//        _student = student;
-//
-//        if (_student == null) System.out.println("Student was null in addStudent!");
-//
-//        //make the data show up in the gui fields
-//        nameField.setText(_student.getName());
-//        majorField.setText(_student.getMajor());
-//        standingField.setValue(ClassStanding.FR);
-//    }
-
     @FXML
     private void handleOKPressed(ActionEvent event) throws IOException {
         if (isInputValid()) {
-//            _account = new Account(registerIdField.getText(), registerPasswordField.getText(),
-//                    registerTypefield.getSelectionModel().getSelectedItem());
             _account.setId(registerIdField.getText());
             _account.setPassword(registerPasswordField.getText());
             _account.setAccountType(registerTypefield.getSelectionModel().getSelectedItem().toString());
@@ -72,13 +78,7 @@ public class RegisterScreenController {
                 alert.setContentText("This ID already exists!");
                 alert.showAndWait();
             } else {
-                ((Node) (event.getSource())).getScene().getWindow().hide();
-                Parent root = FXMLLoader.load(getClass().getResource("../view/LoginScreen.fxml"));
-                Stage stage = new Stage();
-                Scene scene = new Scene(root);
-                stage.setScene(scene);
-                stage.setTitle("Login Page");
-                stage.show();
+                _dialogStage.close();
             }
         }
     }
@@ -118,12 +118,6 @@ public class RegisterScreenController {
 
     @FXML
     private void handleCancelPressed(ActionEvent event) throws IOException {
-        ((Node)(event.getSource())).getScene().getWindow().hide();
-        Parent root = FXMLLoader.load(getClass().getResource("../view/LoginScreen.fxml"));
-        Stage stage = new Stage();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle("Login Page");
-        stage.show();
+        _dialogStage.close();
     }
 }

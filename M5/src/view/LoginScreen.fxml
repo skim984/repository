@@ -4,49 +4,55 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginScreenController">
-    <columnConstraints>
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-    </columnConstraints>
-    <rowConstraints>
-        <RowConstraints maxHeight="185.0" minHeight="10.0" prefHeight="159.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="118.0" minHeight="10.0" prefHeight="91.0" vgrow="SOMETIMES" />
-    </rowConstraints>
-    <children>
-        <TextField fx:id="loginUserField" minHeight="-Infinity" minWidth="-Infinity" prefHeight="31.0" prefWidth="150.0">
-            <GridPane.margin>
-                <Insets left="165.0" right="85.0" top="-50.0" />
-            </GridPane.margin>
-        </TextField>
-        <PasswordField fx:id="loginPasswordField" minHeight="-Infinity" minWidth="-Infinity" prefHeight="31.0" prefWidth="150.0">
-            <GridPane.margin>
-                <Insets left="165.0" right="85.0" top="50.0" />
-            </GridPane.margin>
-        </PasswordField>
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
-            <GridPane.margin>
-                <Insets left="75.0" top="50.0" />
-            </GridPane.margin>
-        </Text>
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="User Name">
-            <GridPane.margin>
-                <Insets left="75.0" top="-50.0" />
-            </GridPane.margin>
-        </Text>
-        <Button fx:id="loginValidationButton" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#btnLoginAction" prefHeight="31.0" prefWidth="150.0" text="Login" GridPane.rowIndex="1">
-            <GridPane.margin>
-                <Insets left="75.0" />
-            </GridPane.margin>
-        </Button>
-        <Button fx:id="cancelLoginButton" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#btnCancelAction" prefHeight="31.0" prefWidth="150.0" text="Cancel" GridPane.rowIndex="1">
-            <GridPane.margin>
-                <Insets left="275.0" />
-            </GridPane.margin>
-        </Button>
-    </children>
-</GridPane>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginScreenController">
+   <children>
+      <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="500.0">
+          <columnConstraints>
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          </columnConstraints>
+          <rowConstraints>
+              <RowConstraints maxHeight="185.0" minHeight="10.0" prefHeight="159.0" vgrow="SOMETIMES" />
+              <RowConstraints maxHeight="118.0" minHeight="10.0" prefHeight="91.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+          <children>
+              <TextField fx:id="loginUserField" minHeight="-Infinity" minWidth="-Infinity" prefHeight="31.0" prefWidth="150.0">
+                  <GridPane.margin>
+                      <Insets left="165.0" right="85.0" top="-50.0" />
+                  </GridPane.margin>
+              </TextField>
+              <PasswordField fx:id="loginPasswordField" minHeight="-Infinity" minWidth="-Infinity" prefHeight="31.0" prefWidth="150.0">
+                  <GridPane.margin>
+                      <Insets left="165.0" right="85.0" top="50.0" />
+                  </GridPane.margin>
+              </PasswordField>
+              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+                  <GridPane.margin>
+                      <Insets left="75.0" top="50.0" />
+                  </GridPane.margin>
+              </Text>
+              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="User Name">
+                  <GridPane.margin>
+                      <Insets left="75.0" top="-50.0" />
+                  </GridPane.margin>
+              </Text>
+              <Button fx:id="loginValidationButton" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#btnLoginAction" prefHeight="31.0" prefWidth="150.0" text="Login" GridPane.rowIndex="1">
+                  <GridPane.margin>
+                      <Insets left="75.0" />
+                  </GridPane.margin>
+              </Button>
+              <Button fx:id="cancelLoginButton" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#btnCancelAction" prefHeight="31.0" prefWidth="150.0" text="Cancel" GridPane.rowIndex="1">
+                  <GridPane.margin>
+                      <Insets left="275.0" />
+                  </GridPane.margin>
+              </Button>
+          </children>
+      </GridPane>
+   </children>
+</AnchorPane>
