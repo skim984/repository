@@ -121,7 +121,7 @@ public class MainFXApplication extends Application {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainFXApplication.class.getResource("../view/RegisterScreen.fxml"));
             AnchorPane page = loader.load();
-            // Load a new root layout from fxml file.
+
             // Create the dialog Stage.
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Edit Student");
@@ -137,18 +137,11 @@ public class MainFXApplication extends Application {
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
 
-//            return controller.isOkClicked();
-//        Stage stage = new Stage();
-//        Scene scene = new Scene(root);
-//        stage.setScene(scene);
-//        stage.setTitle("Register Page");
-//        stage.show();
         } catch (IOException e) {
             LOGGER.log(Level.SEVERE, "Failed to find the fxml file for RegisterScreen!!");
             e.printStackTrace();
         }
     }
-
 
     public void showWelcome() {
         try {
@@ -171,6 +164,33 @@ public class MainFXApplication extends Application {
         } catch (IOException e) {
             //error on load, so log it
             LOGGER.log(Level.SEVERE, "Failed to find the fxml file for WelcomeScreen!!");
+            e.printStackTrace();
+        }
+    }
+
+    public void showProfile() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainFXApplication.class.getResource("../view/RegisterScreen.fxml"));
+            AnchorPane page = loader.load();
+
+            // Create the dialog Stage.
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Edit Student");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(mainScreen);
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+
+            // Set the person into the controller.
+            RegisterScreenController controller = loader.getController();
+            controller.setDialogStage(dialogStage);
+
+            // Show the dialog and wait until the user closes it
+            dialogStage.showAndWait();
+
+        } catch (IOException e) {
+            LOGGER.log(Level.SEVERE, "Failed to find the fxml file for RegisterScreen!!");
             e.printStackTrace();
         }
     }

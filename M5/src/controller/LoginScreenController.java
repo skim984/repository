@@ -43,7 +43,7 @@ public class LoginScreenController {
     }
 
     @FXML
-    private void btnLoginAction(ActionEvent event) throws IOException {
+    private void btnLoginAction() throws IOException {
         //First validate the data to insure it is at least reasonable
         if (isInputValid()) {
             mainApplication.showMain();

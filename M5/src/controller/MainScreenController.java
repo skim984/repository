@@ -32,12 +32,7 @@ public class MainScreenController {
     }
 
     @FXML
-    private void btnCreateProfileAction() {
-
-    }
-
-    @FXML
-    private void btnEditProfileAction() {
+    private void btnCreateEditProfileAction() {
 
     }
 

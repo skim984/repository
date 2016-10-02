@@ -117,7 +117,7 @@ public class RegisterScreenController {
     }
 
     @FXML
-    private void handleCancelPressed(ActionEvent event) throws IOException {
+    private void handleCancelPressed() throws IOException {
         _dialogStage.close();
     }
 }
