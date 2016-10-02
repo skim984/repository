@@ -28,7 +28,7 @@
         </ButtonBar>
         <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
             <buttons>
-                <Button fx:id="registerButton" mnemonicParsing="false" prefHeight="31.0" prefWidth="150.0" text="Register" />
+                <Button fx:id="registerButton" mnemonicParsing="false" onAction="#btnRegisterAction" prefHeight="31.0" prefWidth="150.0" text="Register" />
             </buttons>
             <GridPane.margin>
                 <Insets right="75.0" />

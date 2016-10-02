@@ -25,4 +25,15 @@ public class WelcomeScreenController {
         stage.setTitle("Login Page");
         stage.show();
     }
+
+    @FXML
+    private void btnRegisterAction(ActionEvent event) throws IOException {
+        ((Node)(event.getSource())).getScene().getWindow().hide();
+        Parent root = FXMLLoader.load(getClass().getResource("../view/RegisterScreen.fxml"));
+        Stage stage = new Stage();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Register Page");
+        stage.show();
+    }
 }

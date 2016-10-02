@@ -10,6 +10,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.Model;
 
 
 import java.io.IOException;
@@ -53,13 +54,13 @@ public class LoginScreenController {
 
         //for now just check they actually typed something
         if (loginUserField.getText() == null || loginUserField.getText().length() == 0) {
-            errorMessage += "No valid student name!\n";
+            errorMessage += "No valid User ID!\n";
         }
         if (loginPasswordField.getText() == null || loginPasswordField.getText().length() == 0) {
-            errorMessage += "No valid major entered!\n";
+            errorMessage += "No valid Password entered!\n";
         }
-        if (!loginUserField.getText().equals("user") || !loginPasswordField.getText().equals("pass")) {
-            errorMessage += "ID and Password are not matched!\n";
+        if (!Model.getInstance().findAccount(loginUserField.getText(), loginPasswordField.getText())) {
+            errorMessage += "ID or Password are not matched!\n";
         }
 
         //no error message means success / good input
