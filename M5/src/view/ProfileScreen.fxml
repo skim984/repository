@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="437.0" prefWidth="453.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProfileScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="437.0" prefWidth="453.0" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProfileScreenController">
    <children>
       <GridPane prefHeight="378.0" prefWidth="453.0">
         <columnConstraints>
@@ -31,7 +30,7 @@
             </Label>
             <Label alignment="CENTER_RIGHT" prefHeight="49.0" prefWidth="155.0" text="Home address : " GridPane.rowIndex="1">
                <font>
-                  <Font size="20.0" />
+                  <Font size="18.0" />
                </font>
             </Label>
             <Label alignment="CENTER_RIGHT" prefHeight="49.0" prefWidth="165.0" text="Title : " GridPane.rowIndex="2">
