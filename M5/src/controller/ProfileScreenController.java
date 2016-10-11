@@ -60,19 +60,14 @@ public class ProfileScreenController {
      */
     @FXML
     private void initialize() {
-//        this.setAccount(mainApplication.getCurrentAccount());
     }
 
     /**
      * Sets the student to be edited in the dialog.
      *
-     * @param account the student who will be edited
+     * @param account the account that will be edited
      */
     public void setProfile(Account account) {
-        //remember the current student
-//        _account = student;
-//
-//        if (_student == null) System.out.println("Student was null in addStudent!");
 
         //make the data show up in the gui fields
         emailField.setText(account.getProfile().getEmail());

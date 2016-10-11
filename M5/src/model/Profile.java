@@ -24,7 +24,7 @@ public class Profile {
     }
 
     /**
-     * Makes a new Course
+     * Makes a new Profile
      * @param email  the email of the account
      * @param address the address of the account
      * @param title the title for the account

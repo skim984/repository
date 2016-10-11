@@ -3,6 +3,10 @@ package model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 /**
  * Created by Sunpil Kim on 10/1/2016.
  */
@@ -14,15 +18,46 @@ public class Model {
     /** a list of all the accounts in the system */
     private final ObservableList<Account> accounts = FXCollections.observableArrayList();
 
+    /** */
+    private Connection connection = null;
+
     /**
      * Make a new Model
-     * Fill it with some canned classes and students for data.
+     * Fill it with some canned classes and user for data.
      */
     private Model () {
+        connectJDBC();
         accounts.add(new Account("user", "pass", AccountType.AD));
         accounts.get(0).getProfile().setEmail("ezweb28@gmail.com");
         accounts.get(0).getProfile().setAddress("Georgia");
         accounts.get(0).getProfile().setTitle("Student");
+    }
+
+    private boolean connectJDBC() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            System.out.println("Where is your MYSQL JDBC Driver?");
+            e.printStackTrace();
+        }
+
+        System.out.println("MYSQL JDBC Driver Registered");
+
+        try {
+            connection = DriverManager.
+                    getConnection("jdbc:mysql://" + "ec2-52-203-56-237.compute-1.amazonaws.com" + ":3306/cleanWater", "skim984", "1004");
+//            connection = DriverManager.
+//            getConnection("jdbc:mysql://ec2-54-197-199-129.compute-1.amazonaws.com:3306/" + "cleanWater" + "?user=" + "root" + "&password=" + "1004" + "&useUnicode=true&characterEncoding=UTF-8");
+        } catch (SQLException e) {
+            System.out.println("Connection Failed!:\n" + e.getMessage());
+        }
+
+        if (connection != null) {
+            System.out.println("GOOD");
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**

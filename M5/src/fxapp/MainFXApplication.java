@@ -12,14 +12,17 @@ import javafx.stage.Stage;
 import model.Account;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class MainFXApplication extends Application {
+
+
     /** the java logger for this class */
     private static final Logger LOGGER = Logger.getLogger("MainFXApplication");
-
-
 
     /** the main container for the application window */
     private Stage mainScreen;
@@ -30,10 +33,12 @@ public class MainFXApplication extends Application {
     /** the current account id*/
     private Account currentAccount;
 
+    /** setter for currentAccount*/
     public void setcurrentAccount(Account account) {
         currentAccount = account;
     }
 
+    /** getter for currentAccount*/
     public Account getCurrentAccount() {
         return currentAccount;
     }
@@ -51,6 +56,7 @@ public class MainFXApplication extends Application {
         mainScreen = primaryStage;
         initRootLayout(mainScreen);
     }
+
 
     /**
      * Initialize the main screen for the application.  Most other views will be shown in this screen.
