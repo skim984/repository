@@ -1,14 +1,15 @@
 package model;
 
 /**
- * Created by Sunpil Kim on 10/1/2016.
+ * Created by nick on 10/11/16.
  */
-public enum AccountType {
-    UR ("USER", "UR"),
-    WR ("WORKER", "WR"),
-    MR ("MANAGER", "MR"),
-    AD ("ADMINISTRATOR", "AD");
-
+public enum SourceType {
+    BT ("Bottled", "BT"),
+    WL ("Well", "WL"),
+    ST ("Stream", "ST"),
+    LK ("Lake", "LK"),
+    SP ("Spring", "SP"),
+    OTH ("Other", "OTH");
     private final String type;
 
     private final String code;
@@ -19,7 +20,7 @@ public enum AccountType {
      * @param type   full name of the type
      * @param code   letter code / abbreviation for the type
      */
-    AccountType(String type, String code) {
+    SourceType(String type, String code) {
         this.type = type;
         this.code = code;
     }
@@ -45,6 +46,4 @@ public enum AccountType {
      * @return the display string representation of the type
      */
     public String toString() { return type; }
-
-
 }

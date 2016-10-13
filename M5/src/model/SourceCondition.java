@@ -1,33 +1,29 @@
 package model;
 
 /**
- * Created by Sunpil Kim on 10/1/2016.
+ * Created by nick on 10/11/16.
  */
-public enum AccountType {
-    UR ("USER", "UR"),
-    WR ("WORKER", "WR"),
-    MR ("MANAGER", "MR"),
-    AD ("ADMINISTRATOR", "AD");
+public enum SourceCondition {
+    WS ("Waste", "WS"),
+    TC ("Treatable-Clear", "TC"),
+    TM ("Treatable-Muddy", "TM"),
+    PT ("Potable", "PT");
 
     private final String type;
-
     private final String code;
+
 
     /**
      * Constructor for the enumeration
      *
-     * @param type   full name of the type
-     * @param code   letter code / abbreviation for the type
+     * @param tp   full name of the type
+     * @param cd   letter code / abbreviation for the type
      */
-    AccountType(String type, String code) {
-        this.type = type;
-        this.code = code;
+    SourceCondition(String tp, String cd) {
+        type = tp;
+        code = cd;
     }
 
-    /**
-     *
-     * @return the full type name
-     */
     public String getType() {
         return type;
     }

@@ -4,14 +4,22 @@ import controller.*;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Accordion;
+import javafx.scene.control.TextField;
+import javafx.scene.control.TitledPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Account;
+import model.Report;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -19,7 +27,7 @@ public class MainFXApplication extends Application {
     /** the java logger for this class */
     private static final Logger LOGGER = Logger.getLogger("MainFXApplication");
 
-
+    private List<Report> reportsList;
 
     /** the main container for the application window */
     private Stage mainScreen;
@@ -95,6 +103,9 @@ public class MainFXApplication extends Application {
             //Give the controller access to the main app.
             LoginScreenController controller = loader.getController();
             controller.setMainApp(this);
+
+            //initialize reportsList for this instance; implement persistence later
+            reportsList = new ArrayList<>();
 
             // Set the Main App title
             mainScreen.setTitle("Log In!");
@@ -207,8 +218,99 @@ public class MainFXApplication extends Application {
         }
     }
 
+    public void showSubmitPurity() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainFXApplication.class.getResource("../view/PurityReport.fxml"));
+            AnchorPane page = loader.load();
+
+            // Create the dialog Stage.
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Purity Report Submission");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(mainScreen);
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+
+            // Set the person into the controller.
+            PurityReportController controller = loader.getController();
+            controller.setAccount(currentAccount);
+            controller.setDialogStage(dialogStage);
+            controller.setList(reportsList);
+            // Show the dialog and wait until the user closes it
+            dialogStage.showAndWait();
+            reportsList = controller.updateList();
+
+        } catch (IOException e) {
+            LOGGER.log(Level.SEVERE, "Failed to find the fxml file for SubmitPurityReport!!");
+            e.printStackTrace();
+        }
+    }
+
+    public void showSubmitSource() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainFXApplication.class.getResource("../view/SourceReport.fxml"));
+            AnchorPane page = loader.load();
+
+            // Create the dialog Stage.
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Source Report Submission");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(mainScreen);
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+
+            // Set the person into the controller.
+            SourceReportController controller = loader.getController();
+            controller.setAccount(currentAccount);
+            controller.setDialogStage(dialogStage);
+            controller.setList(reportsList);
+
+            // Show the dialog and wait until the user closes it
+            dialogStage.showAndWait();
+            reportsList = controller.updateList();
+
+        } catch (IOException e) {
+            LOGGER.log(Level.SEVERE, "Failed to find the fxml file for SubmitSourceReport!!");
+            e.printStackTrace();
+        }
+    }
+
+    public void showViewScreen() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainFXApplication.class.getResource("../view/ViewReportScreen.fxml"));
+            AnchorPane page = loader.load();
+
+            // Create the dialog Stage.
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("View Available Reports");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(mainScreen);
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+
+            // Set the person into the controller.
+            ViewReportController controller = loader.getController();
+            controller.setAccount(currentAccount);
+            controller.setDialogStage(dialogStage);
+            controller.setReportsList(reportsList);
+            controller.populateView();
+
+            // Show the dialog and wait until the user closes it
+            dialogStage.showAndWait();
+
+
+        } catch (IOException e) {
+            LOGGER.log(Level.SEVERE, "Failed to find the fxml file for SubmitSourceReport!!");
+            e.printStackTrace();
+        }
+    }
 
     public static void main(String[] args) {
         launch(args);
     }
+
+
 }
