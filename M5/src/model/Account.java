@@ -26,7 +26,7 @@ public class Account {
     }
 
     /**
-     * Makes a new Course
+     * Makes a new account
      * @param id  the id of the account
      * @param password the password of the account
      * @param accountType the accountType for the account

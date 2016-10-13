@@ -20,6 +20,9 @@ import model.Report;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -38,10 +41,12 @@ public class MainFXApplication extends Application {
     /** the current account id*/
     private Account currentAccount;
 
+    /** setter for currentAccount*/
     public void setcurrentAccount(Account account) {
         currentAccount = account;
     }
 
+    /** getter for currentAccount*/
     public Account getCurrentAccount() {
         return currentAccount;
     }
@@ -59,6 +64,7 @@ public class MainFXApplication extends Application {
         mainScreen = primaryStage;
         initRootLayout(mainScreen);
     }
+
 
     /**
      * Initialize the main screen for the application.  Most other views will be shown in this screen.
@@ -311,6 +317,4 @@ public class MainFXApplication extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
-
 }
