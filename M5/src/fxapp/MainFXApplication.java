@@ -1,3 +1,4 @@
+
 package fxapp;
 
 import controller.*;
@@ -9,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
@@ -62,6 +64,7 @@ public class MainFXApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         mainScreen = primaryStage;
+
         initRootLayout(mainScreen);
     }
 
@@ -86,8 +89,12 @@ public class MainFXApplication extends Application {
             Scene scene = new Scene(welcomeLayout);
             mainScreen.setScene(scene);
             // Set the Main App title
-            mainScreen.setTitle("Welcome!");
+
+            mainScreen.setTitle("Moon Night Water Works");
+            Image image = new Image(getClass().getResourceAsStream("favicon.png"));
+            mainScreen.getIcons().add(image);
             mainScreen.show();
+
 
         } catch (IOException e) {
             //error on load, so log it
