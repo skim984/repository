@@ -1,12 +1,10 @@
 package controller;
 
 import fxapp.MainFXApplication;
-import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.Account;
-import model.AccountType;
 
 /**
  * Created by Sunpil Kim on 10/2/2016.

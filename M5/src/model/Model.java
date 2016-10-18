@@ -25,6 +25,7 @@ public class Model {
      */
     private Model () {
         connectJDBC();
+        
         accounts.add(new Account("user", "pass", AccountType.AD));
         accounts.get(0).getProfile().setEmail("ezweb28@gmail.com");
         accounts.get(0).getProfile().setAddress("Georgia");
@@ -58,6 +59,11 @@ public class Model {
         }
     }
 
+    public boolean setting() {
+        System.out.println("ddd");
+        return true;
+    }
+
     /**
      *
      * @return  a list of all the account.  mostly used by UI to display in the table view
@@ -87,10 +93,25 @@ public class Model {
                 //retrieve by column name
                 String _id = rs.getString("Id");
                 if (_id != null) {
+                    System.out.println("Id is exists!!");
                     return false;
                 }
             }
+            PreparedStatement preparedStatement;
+            String insertTableSQL = "INSERT INTO Account"
+                    + "(Id, Password, AccountType) VALUES"
+                    + "(?,?,?)";
+            preparedStatement = connection.prepareStatement(insertTableSQL);
+
+            preparedStatement.setString(1, account.getId());
+            preparedStatement.setString(2, account.getPassword());
+            preparedStatement.setString(3, account.getAccountType());
+
+            //execute insert SQL Statement
+            preparedStatement.executeUpdate();
+
             rs.close();
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -105,6 +126,7 @@ public class Model {
 //        }
         //never found the id so safe to add it.
         accounts.add(account);
+
         //return the success signal
         return true;
     }

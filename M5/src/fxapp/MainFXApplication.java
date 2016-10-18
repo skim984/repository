@@ -1,4 +1,3 @@
-
 package fxapp;
 
 import controller.*;
@@ -13,6 +12,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Account;
 import model.Report;
+import model.Model;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -68,6 +68,7 @@ public class MainFXApplication extends Application {
      */
     private void initRootLayout(Stage mainScreen) {
         try {
+
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainFXApplication.class.getResource("../view/WelcomeScreen.fxml"));
             AnchorPane welcomeLayout = loader.load();
