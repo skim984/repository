@@ -63,7 +63,7 @@ public class ViewReportController {
             StackPane root = new StackPane();
             root.getChildren().add(reportListView);
             _dialogStage.setScene(new Scene(root, 600, 300));
-            _dialogStage.show();
+//            _dialogStage.show();
         }
     }
 
