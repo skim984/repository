@@ -3,9 +3,7 @@ package model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 /**
  * Created by Sunpil Kim on 10/1/2016.
@@ -76,13 +74,35 @@ public class Model {
         if (account == null) {
             return false;
         }
-        //go through each account looking for duplicate id   O(n)
-        for (Account s : accounts) {
-            if (s.getId().equals(account.getId())) {
-                //oops found duplicate id, don't add and return failure signal
-                return false;
+
+        try {
+            Statement statement;
+            statement = connection.createStatement();
+            String sql;
+            sql = "SELECT Id FROM Account WHERE Id='" + account.getId() + "'";
+            ResultSet rs = statement.executeQuery(sql);
+
+            //Extract data from result set
+            while (rs.next()) {
+                //retrieve by column name
+                String _id = rs.getString("Id");
+                if (_id != null) {
+                    return false;
+                }
             }
+            rs.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
         }
+
+//
+//        //go through each account looking for duplicate id   O(n)
+//        for (Account s : accounts) {
+//            if (s.getId().equals(account.getId())) {
+//                //oops found duplicate id, don't add and return failure signal
+//                return false;
+//            }
+//        }
         //never found the id so safe to add it.
         accounts.add(account);
         //return the success signal
@@ -90,6 +110,7 @@ public class Model {
     }
 
     public Account findAccount(String id, String password) {
+
         //go through each account looking for duplicate id   O(n)
         for (Account s : accounts) {
             //check id
