@@ -25,11 +25,39 @@ public class Model {
      */
     private Model () {
         connectJDBC();
-        
-        accounts.add(new Account("user", "pass", AccountType.AD));
-        accounts.get(0).getProfile().setEmail("ezweb28@gmail.com");
-        accounts.get(0).getProfile().setAddress("Georgia");
-        accounts.get(0).getProfile().setTitle("Student");
+        try {
+            Statement statement;
+            statement = connection.createStatement();
+            String sql;
+            sql = "SELECT * FROM Account NATURAL JOIN Profile";
+            ResultSet rs = statement.executeQuery(sql);
+
+            //Extract data from result set
+            while (rs.next()) {
+                //retrieve by column name
+                String _id = rs.getString("Id");
+                String _pwd = rs.getString("Password");
+                String _accountType = rs.getString("AccountType");
+                String _email = rs.getString("Email");
+                String _address = rs.getString("Address");
+                String _title = rs.getString("Title");
+                Account account = new Account();
+                account.setId(_id);
+                account.setPassword(_pwd);
+                account.setAccountType(_accountType);
+                account.getProfile().setEmail(_email);
+                account.getProfile().setAddress(_address);
+                account.getProfile().setTitle(_title);
+                accounts.add(account);
+            }
+            rs.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+//        accounts.add(new Account("user", "pass", AccountType.AD));
+//        accounts.get(0).getProfile().setEmail("ezweb28@gmail.com");
+//        accounts.get(0).getProfile().setAddress("Georgia");
+//        accounts.get(0).getProfile().setTitle("Student");
     }
 
     private boolean connectJDBC() {
@@ -57,11 +85,6 @@ public class Model {
         } else {
             return false;
         }
-    }
-
-    public boolean setting() {
-        System.out.println("ddd");
-        return true;
     }
 
     /**
@@ -98,6 +121,7 @@ public class Model {
                 }
             }
             PreparedStatement preparedStatement;
+            // Insert an account in DB
             String insertTableSQL = "INSERT INTO Account"
                     + "(Id, Password, AccountType) VALUES"
                     + "(?,?,?)";
@@ -106,6 +130,20 @@ public class Model {
             preparedStatement.setString(1, account.getId());
             preparedStatement.setString(2, account.getPassword());
             preparedStatement.setString(3, account.getAccountType());
+
+            //execute insert SQL Statement
+            preparedStatement.executeUpdate();
+
+            // Insert Profile in BD
+            insertTableSQL = "INSERT INTO Profile"
+                    + "(Id, Email, Address, Title) VALUES"
+                    + "(?,?,?, ?)";
+            preparedStatement = connection.prepareStatement(insertTableSQL);
+
+            preparedStatement.setString(1, account.getId());
+            preparedStatement.setString(2, "");
+            preparedStatement.setString(3, "");
+            preparedStatement.setString(4, "");
 
             //execute insert SQL Statement
             preparedStatement.executeUpdate();
@@ -146,6 +184,28 @@ public class Model {
         //never found the id
         //return the fail signal
         return null;
+    }
+
+    public void updateProfile(Account account) {
+        try {
+
+            PreparedStatement preparedStatement;
+            // Insert an account in DB
+            String updateTableSQL = "UPDATE Profile SET Email=?, Address= ?,"
+                    + " Title= ? WHERE Id=?";
+            preparedStatement = connection.prepareStatement(updateTableSQL);
+
+            preparedStatement.setString(1, account.getProfile().getEmail());
+            preparedStatement.setString(2, account.getProfile().getAddress());
+            preparedStatement.setString(3, account.getProfile().getTitle());
+            preparedStatement.setString(4, account.getId());
+
+            //execute insert SQL Statement
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 }
