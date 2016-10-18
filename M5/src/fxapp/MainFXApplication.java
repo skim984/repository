@@ -55,9 +55,16 @@ public class MainFXApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        initDB();
         mainScreen = primaryStage;
-
         initRootLayout(mainScreen);
+    }
+
+    /**
+     *  Initiate Database
+     */
+    private void initDB() {
+        model.Model.getInstance();
     }
 
 
@@ -68,7 +75,6 @@ public class MainFXApplication extends Application {
      */
     private void initRootLayout(Stage mainScreen) {
         try {
-
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainFXApplication.class.getResource("../view/WelcomeScreen.fxml"));
             AnchorPane welcomeLayout = loader.load();

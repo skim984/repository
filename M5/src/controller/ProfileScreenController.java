@@ -79,6 +79,7 @@ public class ProfileScreenController {
         this.getAccount().getProfile().setEmail(emailField.getText());
         this.getAccount().getProfile().setAddress(addressField.getText());
         this.getAccount().getProfile().setTitle(titleField.getText());
+        model.Model.getInstance().updateProfile(this.getAccount());
         _dialogStage.close();
     }
 
