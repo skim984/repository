@@ -8,5 +8,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="mysql-connector-java-5.1.40-bin" level="application" />
+    <orderEntry type="library" name="GMapsFX-2.0.8-SNAPSHOT" level="application" />
+    <orderEntry type="library" name="gson-2.7" level="application" />
   </component>
 </module>

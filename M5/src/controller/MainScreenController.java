@@ -61,4 +61,7 @@ public class MainScreenController {
 
     @FXML
     private void btnViewAction() { mainApplication.showViewScreen(); }
+
+    @FXML
+    private void btnMapAction()   { mainApplication.showMap(); }
 }

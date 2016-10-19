@@ -2,6 +2,13 @@ package fxapp;
 
 import controller.*;
 
+import com.lynden.gmapsfx.GoogleMapView;
+import com.lynden.gmapsfx.MapComponentInitializedListener;
+import com.lynden.gmapsfx.javascript.object.GoogleMap;
+import com.lynden.gmapsfx.javascript.object.LatLong;
+import com.lynden.gmapsfx.javascript.object.MapOptions;
+import com.lynden.gmapsfx.javascript.object.Marker;
+import com.lynden.gmapsfx.javascript.object.MarkerOptions;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -318,6 +325,20 @@ public class MainFXApplication extends Application {
             LOGGER.log(Level.SEVERE, "Failed to find the fxml file for SubmitSourceReport!!");
             e.printStackTrace();
         }
+    }
+
+    public void showMap () {
+        Stage mapStage = new Stage();
+        mapStage.setTitle("Available Reports");
+        /* Using the controller to set up the view because honestly, I could not
+           get the .fxml way to work. */
+        MapController controller = new MapController(this, mapStage);
+
+        mainScreen = mapStage;
+
+        //at this point the controller has made the window, setup the map and set it as the scene for the stage
+        mapStage.show();
+
     }
 
     public static void main(String[] args) {

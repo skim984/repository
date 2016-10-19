@@ -14,7 +14,7 @@
             <Button fx:id="sourceButton" mnemonicParsing="false" onAction="#btnSourceAction" text="Submit Source Report" />
             <Button fx:id="purityButton" mnemonicParsing="false" onAction="#btnPurityAction" text="Submit Purity Report" />
             <Button fx:id="buttonViewReport" mnemonicParsing="false" onAction="#btnViewAction" text="View Reports" />
-            <Button fx:id="buttonViewReport1" mnemonicParsing="false" onAction="#btnViewAction" text="View Map" />
+            <Button fx:id="buttonViewMap" mnemonicParsing="false" onAction="#btnMapAction" text="View Map" />
             </items>
          <BorderPane.margin>
             <Insets />
