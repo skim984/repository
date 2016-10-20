@@ -23,20 +23,25 @@ public class SourceReportController {
 
 
     @FXML
-    ComboBox<SourceType> waterTypeBox;
+    private ComboBox<SourceType> waterTypeBox;
     @FXML
-    ComboBox<SourceCondition> waterConditionBox;
+    private ComboBox<SourceCondition> waterConditionBox;
     @FXML
-    TextField sourceLocationText;
+    private TextField latitudeTextField;
+    @FXML
+    private TextField longitudeTextField;
+
     private List<Report> reportsList;
 
     @FXML
     public void initialize() {
+        waterTypeBox.setOnMousePressed(event -> waterTypeBox.requestFocus());
         waterTypeBox.getItems().setAll(FXCollections.observableArrayList(SourceType.values()));
         waterTypeBox.setValue(SourceType.BT);
 
         waterConditionBox.getItems().setAll(FXCollections.observableArrayList(SourceCondition.values()));
         waterConditionBox.setValue(SourceCondition.WS);
+        waterConditionBox.setOnMousePressed(event -> waterConditionBox.requestFocus());
     }
 
     /**
@@ -63,9 +68,8 @@ public class SourceReportController {
     }
 
 
-    public List<Report> setList(List<Report> reportsList) {
+    public void setList(List<Report> reportsList) {
         this.reportsList = reportsList;
-        return this.reportsList;
     }
 
     public List<Report> updateList() {
@@ -75,7 +79,8 @@ public class SourceReportController {
     private void handleOKPressed() throws IOException {
         SourceReport rep = new SourceReport(account.getId());
         if(isInputValid()) {
-            rep.setLoc(sourceLocationText.getText());
+            rep.setLocation(Double.parseDouble(latitudeTextField.getText()),
+                    Double.parseDouble(longitudeTextField.getText()));
             rep.setSc(waterConditionBox.getValue());
             rep.setSt(waterTypeBox.getValue());
             reportsList.add(rep);
@@ -87,9 +92,29 @@ public class SourceReportController {
     private boolean isInputValid() {
         String errMess = "";
 
-        if (sourceLocationText.getText().isEmpty()) {
+        if (latitudeTextField.getText().isEmpty()
+                || longitudeTextField.getText().isEmpty()) {
             errMess += "No valid location provided.";
         }
+
+        try {
+            Integer.parseInt(latitudeTextField.getText());
+            Integer.parseInt(latitudeTextField.getText());
+        } catch (NumberFormatException e) {
+            errMess += "One or more of the values provided" +
+                    " as locations are invalid. " +
+                    "Please ensure you have entered a real number.\n";
+        }
+
+        try {
+            Integer.parseInt(latitudeTextField.getText());
+            Integer.parseInt(latitudeTextField.getText());
+        } catch (NumberFormatException e) {
+            errMess += "One or more of the values provided" +
+                    " as locations are invalid. " +
+                    "Please ensure you have entered a real number.\n";
+        }
+
 
         if (errMess.isEmpty()) {
             return true;

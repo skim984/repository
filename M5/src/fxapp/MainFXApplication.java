@@ -1,14 +1,6 @@
 package fxapp;
 
 import controller.*;
-
-import com.lynden.gmapsfx.GoogleMapView;
-import com.lynden.gmapsfx.MapComponentInitializedListener;
-import com.lynden.gmapsfx.javascript.object.GoogleMap;
-import com.lynden.gmapsfx.javascript.object.LatLong;
-import com.lynden.gmapsfx.javascript.object.MapOptions;
-import com.lynden.gmapsfx.javascript.object.Marker;
-import com.lynden.gmapsfx.javascript.object.MarkerOptions;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -19,10 +11,8 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Account;
 import model.Report;
-import model.Model;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,8 +21,8 @@ public class MainFXApplication extends Application {
     /** the java logger for this class */
     private static final Logger LOGGER = Logger.getLogger("MainFXApplication");
 
-    private List<Report> reportsList;
-
+    /** the main List of Reports, to be replaced with an SQL call later */
+    private List<Report> currentReportsList;
     /** the main container for the application window */
     private Stage mainScreen;
 
@@ -51,6 +41,7 @@ public class MainFXApplication extends Application {
     public Account getCurrentAccount() {
         return currentAccount;
     }
+
 
     /**
      * return a reference to the main window stage
@@ -122,9 +113,6 @@ public class MainFXApplication extends Application {
             //Give the controller access to the main app.
             LoginScreenController controller = loader.getController();
             controller.setMainApp(this);
-
-            //initialize reportsList for this instance; implement persistence later
-            reportsList = new ArrayList<>();
 
             // Set the Main App title
             mainScreen.setTitle("Log In!");
@@ -255,10 +243,10 @@ public class MainFXApplication extends Application {
             PurityReportController controller = loader.getController();
             controller.setAccount(currentAccount);
             controller.setDialogStage(dialogStage);
-            controller.setList(reportsList);
+            controller.setList(currentReportsList);
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
-            reportsList = controller.updateList();
+            currentReportsList = controller.updateList();
 
         } catch (IOException e) {
             LOGGER.log(Level.SEVERE, "Failed to find the fxml file for SubmitPurityReport!!");
@@ -284,11 +272,11 @@ public class MainFXApplication extends Application {
             SourceReportController controller = loader.getController();
             controller.setAccount(currentAccount);
             controller.setDialogStage(dialogStage);
-            controller.setList(reportsList);
+            controller.setList(currentReportsList);
 
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
-            reportsList = controller.updateList();
+            currentReportsList = controller.updateList();
 
         } catch (IOException e) {
             LOGGER.log(Level.SEVERE, "Failed to find the fxml file for SubmitSourceReport!!");
@@ -314,7 +302,7 @@ public class MainFXApplication extends Application {
             ViewReportController controller = loader.getController();
             controller.setAccount(currentAccount);
             controller.setDialogStage(dialogStage);
-            controller.setReportsList(reportsList);
+            controller.setReportsList(currentReportsList);
             controller.populateView();
 
             // Show the dialog and wait until the user closes it
@@ -342,5 +330,13 @@ public class MainFXApplication extends Application {
 
     public static void main(String[] args) {
         launch(args);
+    }
+
+    public List<Report> getCurrentReportsList() {
+        return currentReportsList;
+    }
+
+    public void setCurrentReportsList(List<Report> currentReportsList) {
+        this.currentReportsList = currentReportsList;
     }
 }

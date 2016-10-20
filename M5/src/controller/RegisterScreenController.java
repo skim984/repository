@@ -4,10 +4,6 @@ import fxapp.MainFXApplication;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -61,6 +57,7 @@ public class RegisterScreenController {
      */
     @FXML
     private void initialize() {
+        registerTypefield.setOnMousePressed(event -> registerTypefield.requestFocus());
         registerTypefield.getItems().setAll(FXCollections.observableArrayList(AccountType.values()));
         registerTypefield.setValue(AccountType.UR);
     }

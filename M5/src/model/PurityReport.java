@@ -8,19 +8,9 @@ public class PurityReport extends Report{
         super(name);
     }
 
-    private String loc;
     private int VPPM;
     private int CPPM;
     private PurityCondition pCond;
-
-
-    public String getLoc() {
-        return loc;
-    }
-
-    public void setLoc(String loc) {
-        this.loc = loc;
-    }
 
     public int getVPPM() {
         return VPPM;
@@ -53,7 +43,11 @@ public class PurityReport extends Report{
 
     @Override
     public String toString() {
-        return super.toString() + "\n\tLocation: " + loc + "\n\tVirus PPM: " + VPPM
-                + "\n\tContaminant PPM: " + CPPM + "\n\tCondition " + pCond;
+        return super.toString() +
+                "\n\tLocation: " + getLocation() +
+                "\n\tVirus PPM: " + getVPPM() +
+                "\n\tContaminant PPM: " + getCPPM() +
+                "\n\tCondition " + getpCond();
     }
+
 }

@@ -9,7 +9,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="397.0" prefWidth="595.0" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ViewReportController">
    <children>
       <Button layoutX="524.0" layoutY="360.0" mnemonicParsing="false" onAction="#handleCancelPressed" text="Back" />
-      <ListView fx:id="reportListTable" layoutX="9.0" layoutY="56.0" prefHeight="289.0" prefWidth="579.0" />
+      <ListView fx:id="reportListView" layoutX="9.0" layoutY="56.0" prefHeight="289.0" prefWidth="579.0" />
       <Text layoutX="122.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View Available Reports">
          <font>
             <Font size="31.0" />

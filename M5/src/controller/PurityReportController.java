@@ -26,7 +26,10 @@ public class PurityReportController {
     private Stage _dialogStage;
 
     @FXML
-    private TextField purityLocationText;
+    private TextField latitudeTextField;
+
+    @FXML
+    private TextField longitudeTextField;
 
     @FXML
     private TextField virusPPMText;
@@ -50,6 +53,7 @@ public class PurityReportController {
 
     @FXML
     public void initialize() {
+        waterPurityComboBox.setOnMousePressed(event -> waterPurityComboBox.requestFocus());
         waterPurityComboBox.getItems().setAll(FXCollections.observableArrayList(PurityCondition.values()));
         waterPurityComboBox.setValue(PurityCondition.SF);
     }
@@ -67,9 +71,8 @@ public class PurityReportController {
     private void handleCancelPressed() throws IOException {
         _dialogStage.close();
     }
-    public List<Report> setList(List<Report> reportsList) {
+    public void setList(List<Report> reportsList) {
         this.reportsList = reportsList;
-        return this.reportsList;
     }
 
     public List<Report> updateList() {
@@ -79,7 +82,8 @@ public class PurityReportController {
     private void handleOKPressed() throws IOException {
         PurityReport pr = new PurityReport(account.getId());
         if (isInputValid()) {
-            pr.setLoc(purityLocationText.getText());
+            pr.setLocation(Double.parseDouble(latitudeTextField.getText()),
+                    Double.parseDouble(longitudeTextField.getText()));
             pr.setpCond(waterPurityComboBox.getValue());
             pr.setCPPM(Integer.parseInt(contamPPMText.getText()));
             pr.setVPPM(Integer.parseInt(virusPPMText.getText()));
@@ -92,8 +96,11 @@ public class PurityReportController {
     private boolean isInputValid() {
         String errMess = "";
 
-        if (purityLocationText.getText().isEmpty()) {
-            errMess += "No valid location provided.\n";
+        if (longitudeTextField.getText().isEmpty()) {
+            errMess += "No valid location longitude provided.\n";
+        }
+        if (latitudeTextField.getText().isEmpty()) {
+            errMess += "No valid location latitude provided.\n";
         }
         if (contamPPMText.getText().isEmpty()) {
             errMess += "No valid Contaminant PPM provided.\n";
@@ -106,7 +113,18 @@ public class PurityReportController {
             Integer.parseInt(contamPPMText.getText());
             Integer.parseInt(virusPPMText.getText());
         } catch (NumberFormatException e) {
-            errMess += "One or more of the values provided as PPMs are invalid. Please ensure you have entered an integer.\n";
+            errMess += "One or more of the values provided as " +
+                    "PPMs are invalid. Please ensure you " +
+                    "have entered an integer.\n";
+        }
+
+        try {
+            Integer.parseInt(latitudeTextField.getText());
+            Integer.parseInt(latitudeTextField.getText());
+        } catch (NumberFormatException e) {
+            errMess += "One or more of the values provided" +
+                    " as locations are invalid. " +
+                    "Please ensure you have entered a real number.\n";
         }
 
         if (errMess.length() == 0) {

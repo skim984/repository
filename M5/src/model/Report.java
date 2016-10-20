@@ -12,6 +12,8 @@ public class Report {
     int id;
     String reporterName;
     DateFormat dateFormat;
+    double locationLatitude;
+    double locationLongitude;
 
     public Report(String name) {
         reporterName = name;
@@ -36,6 +38,16 @@ public class Report {
     public String getType() {
         return "None";
     }
+
+    public void setLocation(double longitude, double latitude) {
+        locationLatitude = latitude;
+        locationLongitude = longitude;
+    }
+
+    public String getLocation() {
+        return locationLatitude +", " + locationLongitude;
+    }
+
 
     @Override
     public String toString() {

@@ -5,12 +5,10 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TableView;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import model.Account;
 import model.AccountType;
-import model.PurityReport;
 import model.Report;
 
 import java.io.IOException;
