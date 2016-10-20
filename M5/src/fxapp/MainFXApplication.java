@@ -329,12 +329,11 @@ public class MainFXApplication extends Application {
 
     public void showMap () {
         Stage mapStage = new Stage();
-        mapStage.setTitle("Available Reports");
+        mapStage.setTitle("Map and Persistence Demo");
         /* Using the controller to set up the view because honestly, I could not
            get the .fxml way to work. */
         MapController controller = new MapController(this, mapStage);
 
-        mainScreen = mapStage;
 
         //at this point the controller has made the window, setup the map and set it as the scene for the stage
         mapStage.show();

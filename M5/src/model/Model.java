@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
+import java.util.List;
 
 /**
  * Created by Sunpil Kim on 10/1/2016.
@@ -15,6 +16,10 @@ public class Model {
 
     /** a list of all the accounts in the system */
     private final ObservableList<Account> accounts = FXCollections.observableArrayList();
+
+
+    private final ObservableList<Report> reportsList = FXCollections.observableArrayList();
+
 
     /** */
     private Connection connection = null;
