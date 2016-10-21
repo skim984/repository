@@ -9,6 +9,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import model.Account;
 import model.AccountType;
+import model.Model;
 import model.Report;
 
 import java.io.IOException;
@@ -22,7 +23,6 @@ public class ViewReportController {
     private MainFXApplication mainApplication;
     private Account _account;
     private Stage _dialogStage;
-    private List<Report> reportsList;
     @FXML
     ListView<Report> reportListView;
 
@@ -39,12 +39,9 @@ public class ViewReportController {
         _dialogStage = dialogStage;
     }
 
-    public void setReportsList(List<Report> reportsList) {
-        this.reportsList = reportsList;
-    }
-
     @FXML
     public void populateView() {
+        List<Report> reportsList = FXCollections.observableArrayList(Model.getInstance().getReports());
         if(_account != null) {
             if (_account.getAccountType().equals(AccountType.UR.toString())) {
                 List<Report> tempRep = new ArrayList<>();

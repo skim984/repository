@@ -21,11 +21,13 @@
             <Font size="21.0" />
          </font>
       </Text>
-      <Text layoutX="32.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location:" />
-      <Text layoutX="23.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Water Type:" />
-      <Text layoutX="29.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Condition:" />
-      <TextField fx:id="sourceLocationText" layoutX="124.0" layoutY="51.0" prefHeight="110.0" prefWidth="402.0" />
-      <ComboBox fx:id="waterTypeBox" layoutX="124.0" layoutY="227.0" prefHeight="16.0" prefWidth="402.0" />
-      <ComboBox fx:id="waterConditionBox" layoutX="124.0" layoutY="290.0" prefHeight="16.0" prefWidth="402.0" />
+      <Text layoutX="22.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Water Type:" />
+      <Text layoutX="28.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Condition:" />
+      <ComboBox fx:id="waterTypeBox" layoutX="124.0" layoutY="187.0" prefHeight="16.0" prefWidth="402.0" />
+      <ComboBox fx:id="waterConditionBox" layoutX="124.0" layoutY="244.0" prefHeight="16.0" prefWidth="402.0" />
+      <Text layoutX="34.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Latitude" />
+      <Text layoutX="29.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Longitude" />
+      <TextField fx:id="latitudeTextField" layoutX="124.0" layoutY="79.0" />
+      <TextField fx:id="longitudeTextField" layoutX="124.0" layoutY="130.0" />
    </children>
 </AnchorPane>

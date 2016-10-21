@@ -10,10 +10,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Account;
-import model.Report;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -21,8 +19,6 @@ public class MainFXApplication extends Application {
     /** the java logger for this class */
     private static final Logger LOGGER = Logger.getLogger("MainFXApplication");
 
-    /** the main List of Reports, to be replaced with an SQL call later */
-    private List<Report> currentReportsList;
     /** the main container for the application window */
     private Stage mainScreen;
 
@@ -243,10 +239,8 @@ public class MainFXApplication extends Application {
             PurityReportController controller = loader.getController();
             controller.setAccount(currentAccount);
             controller.setDialogStage(dialogStage);
-            controller.setList(currentReportsList);
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
-            currentReportsList = controller.updateList();
 
         } catch (IOException e) {
             LOGGER.log(Level.SEVERE, "Failed to find the fxml file for SubmitPurityReport!!");
@@ -272,11 +266,9 @@ public class MainFXApplication extends Application {
             SourceReportController controller = loader.getController();
             controller.setAccount(currentAccount);
             controller.setDialogStage(dialogStage);
-            controller.setList(currentReportsList);
 
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
-            currentReportsList = controller.updateList();
 
         } catch (IOException e) {
             LOGGER.log(Level.SEVERE, "Failed to find the fxml file for SubmitSourceReport!!");
@@ -302,7 +294,6 @@ public class MainFXApplication extends Application {
             ViewReportController controller = loader.getController();
             controller.setAccount(currentAccount);
             controller.setDialogStage(dialogStage);
-            controller.setReportsList(currentReportsList);
             controller.populateView();
 
             // Show the dialog and wait until the user closes it
@@ -330,13 +321,5 @@ public class MainFXApplication extends Application {
 
     public static void main(String[] args) {
         launch(args);
-    }
-
-    public List<Report> getCurrentReportsList() {
-        return currentReportsList;
-    }
-
-    public void setCurrentReportsList(List<Report> currentReportsList) {
-        this.currentReportsList = currentReportsList;
     }
 }

@@ -9,9 +9,7 @@ import javafx.stage.Stage;
 import model.Account;
 import model.Model;
 
-
 import java.io.IOException;
-import java.util.ArrayList;
 
 
 /**
@@ -45,7 +43,6 @@ public class LoginScreenController {
     private void btnLoginAction() throws IOException {
         //First validate the data to insure it is at least reasonable
         if (isInputValid()) {
-            mainApplication.setCurrentReportsList(new ArrayList<>());
             mainApplication.setcurrentAccount(currentAccount);
             mainApplication.showMain();
         }

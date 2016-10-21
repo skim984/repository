@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -63,6 +64,21 @@ public class Model {
 //        accounts.get(0).getProfile().setEmail("ezweb28@gmail.com");
 //        accounts.get(0).getProfile().setAddress("Georgia");
 //        accounts.get(0).getProfile().setTitle("Student");
+    }
+
+    public boolean addReport(Report report) {
+        for (Report r : reportsList) {
+            if (r.getId() == report.getId()) {
+                report.setID(report.getId() + 1);
+            }
+        }
+        reportsList.add(report);
+
+        return true;
+    }
+
+    public List<Report> getReports() {
+        return reportsList;
     }
 
     private boolean connectJDBC() {
@@ -189,6 +205,30 @@ public class Model {
         //never found the id
         //return the fail signal
         return null;
+    }
+
+    public Report findReport(String reporterName, int id) {
+        for (Report r : reportsList) {
+            // check each reporter name/user id
+            if (r.getReporterName().equals(reporterName)) {
+                // check the id
+                if (id != 0 && id == r.getId()) {
+                    return r;
+                }
+            }
+        }
+        return null;
+    }
+
+    public List<Report> findReportByUser(String reporterName) {
+        List<Report> tempList = new ArrayList<>();
+        for (Report r : reportsList) {
+            // check each reporter name/user id
+            if (r.getReporterName().equals(reporterName)) {
+                tempList.add(r);
+            }
+        }
+        return tempList;
     }
 
     public void updateProfile(Account account) {

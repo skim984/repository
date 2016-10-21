@@ -10,7 +10,6 @@ import javafx.stage.Stage;
 import model.*;
 
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Created by nick on 10/11/16.
@@ -30,8 +29,6 @@ public class SourceReportController {
     private TextField latitudeTextField;
     @FXML
     private TextField longitudeTextField;
-
-    private List<Report> reportsList;
 
     @FXML
     public void initialize() {
@@ -67,14 +64,6 @@ public class SourceReportController {
         _dialogStage.close();
     }
 
-
-    public void setList(List<Report> reportsList) {
-        this.reportsList = reportsList;
-    }
-
-    public List<Report> updateList() {
-        return reportsList;
-    }
     @FXML
     private void handleOKPressed() throws IOException {
         SourceReport rep = new SourceReport(account.getId());
@@ -83,7 +72,7 @@ public class SourceReportController {
                     Double.parseDouble(longitudeTextField.getText()));
             rep.setSc(waterConditionBox.getValue());
             rep.setSt(waterTypeBox.getValue());
-            reportsList.add(rep);
+            Model.getInstance().addReport(rep);
             _dialogStage.close();
         }
 
@@ -107,8 +96,8 @@ public class SourceReportController {
         }
 
         try {
-            Integer.parseInt(latitudeTextField.getText());
-            Integer.parseInt(latitudeTextField.getText());
+            Double.parseDouble(latitudeTextField.getText());
+            Double.parseDouble(latitudeTextField.getText());
         } catch (NumberFormatException e) {
             errMess += "One or more of the values provided" +
                     " as locations are invalid. " +

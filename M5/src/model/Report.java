@@ -9,11 +9,11 @@ import java.util.Random;
  * Created by nick on 10/11/16.
  */
 public class Report {
-    int id;
-    String reporterName;
-    DateFormat dateFormat;
-    double locationLatitude;
-    double locationLongitude;
+    private int id;
+    private String reporterName;
+    private DateFormat dateFormat;
+    private double locationLatitude;
+    private double locationLongitude;
 
     public Report(String name) {
         reporterName = name;
@@ -34,6 +34,7 @@ public class Report {
     public int getId() {
         return id;
     }
+    public void setID(int id) { this.id = id; }
 
     public String getType() {
         return "None";

@@ -10,10 +10,8 @@ import javafx.stage.Stage;
 import model.Account;
 import model.PurityCondition;
 import model.PurityReport;
-import model.Report;
 
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Created by nick on 10/11/16.
@@ -21,7 +19,6 @@ import java.util.List;
 public class PurityReportController {
     /** a link back to the main application class */
     private MainFXApplication mainApplication;
-    public List<Report> reportsList;
     private Account account = new Account();
     private Stage _dialogStage;
 
@@ -71,13 +68,7 @@ public class PurityReportController {
     private void handleCancelPressed() throws IOException {
         _dialogStage.close();
     }
-    public void setList(List<Report> reportsList) {
-        this.reportsList = reportsList;
-    }
 
-    public List<Report> updateList() {
-        return reportsList;
-    }
     @FXML
     private void handleOKPressed() throws IOException {
         PurityReport pr = new PurityReport(account.getId());
@@ -87,8 +78,7 @@ public class PurityReportController {
             pr.setpCond(waterPurityComboBox.getValue());
             pr.setCPPM(Integer.parseInt(contamPPMText.getText()));
             pr.setVPPM(Integer.parseInt(virusPPMText.getText()));
-            reportsList.add(pr);
-            System.out.println(reportsList.toString());
+            model.Model.getInstance().addReport(pr);
             _dialogStage.close();
         }
     }
@@ -119,8 +109,8 @@ public class PurityReportController {
         }
 
         try {
-            Integer.parseInt(latitudeTextField.getText());
-            Integer.parseInt(latitudeTextField.getText());
+            Double.parseDouble(latitudeTextField.getText());
+            Double.parseDouble(latitudeTextField.getText());
         } catch (NumberFormatException e) {
             errMess += "One or more of the values provided" +
                     " as locations are invalid. " +
