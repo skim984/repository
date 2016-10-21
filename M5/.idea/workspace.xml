@@ -31,7 +31,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MapController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MapController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controller/MapController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="220">
@@ -44,24 +44,24 @@
       <file leaf-file-name="SourceReportController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controller/SourceReportController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+            <state relative-caret-position="129">
+              <caret line="67" column="54" selection-start-line="67" selection-start-column="54" selection-end-line="67" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1477052080288" expanded="true" signature="3349:3681" ph="{...}" />
+                <marker date="1477054172539" expanded="true" signature="3349:3681" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PurityReportController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PurityReportController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controller/PurityReportController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1100">
-              <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+            <state relative-caret-position="327">
+              <caret line="83" column="5" selection-start-line="83" selection-start-column="5" selection-end-line="83" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1477052080281" expanded="true" signature="3635:4022" ph="{...}" />
+                <marker date="1477054172567" expanded="true" signature="3635:4022" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -162,12 +162,12 @@
         <option value="$PROJECT_DIR$/src/controller/RegisterScreenController.java" />
         <option value="$PROJECT_DIR$/src/controller/LoginScreenController.java" />
         <option value="$PROJECT_DIR$/src/model/Report.java" />
-        <option value="$PROJECT_DIR$/src/controller/PurityReportController.java" />
-        <option value="$PROJECT_DIR$/src/controller/SourceReportController.java" />
         <option value="$PROJECT_DIR$/src/model/Model.java" />
         <option value="$PROJECT_DIR$/src/controller/ViewReportController.java" />
         <option value="$PROJECT_DIR$/src/fxapp/MainFXApplication.java" />
         <option value="$PROJECT_DIR$/src/controller/MapController.java" />
+        <option value="$PROJECT_DIR$/src/controller/SourceReportController.java" />
+        <option value="$PROJECT_DIR$/src/controller/PurityReportController.java" />
       </list>
     </option>
   </component>
@@ -636,7 +636,7 @@
           <caret line="86" column="29" selection-start-line="86" selection-start-column="29" selection-end-line="86" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1477052080281" expanded="true" signature="3635:4022" ph="{...}" />
+            <marker date="1477054172567" expanded="true" signature="3635:4022" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -647,7 +647,7 @@
           <caret line="80" column="33" selection-start-line="80" selection-start-column="33" selection-end-line="80" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1477052080288" expanded="true" signature="3349:3681" ph="{...}" />
+            <marker date="1477054172539" expanded="true" signature="3349:3681" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -694,7 +694,7 @@
           <caret line="77" column="9" selection-start-line="77" selection-start-column="9" selection-end-line="77" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1477052080281" expanded="true" signature="3635:4022" ph="{...}" />
+            <marker date="1477054172567" expanded="true" signature="3635:4022" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -705,7 +705,7 @@
           <caret line="80" column="33" selection-start-line="80" selection-start-column="33" selection-end-line="80" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1477052080288" expanded="true" signature="3349:3681" ph="{...}" />
+            <marker date="1477054172539" expanded="true" signature="3349:3681" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -773,7 +773,7 @@
           <caret line="26" column="35" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1477052080281" expanded="true" signature="3635:4022" ph="{...}" />
+            <marker date="1477054172567" expanded="true" signature="3635:4022" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -784,7 +784,7 @@
           <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1477052080288" expanded="true" signature="3349:3681" ph="{...}" />
+            <marker date="1477054172539" expanded="true" signature="3349:3681" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -975,28 +975,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/SourceReportController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1477052080288" expanded="true" signature="3349:3681" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/PurityReportController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1100">
-          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1477052080281" expanded="true" signature="3635:4022" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Model.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3762">
@@ -1038,6 +1016,28 @@
         <state relative-caret-position="220">
           <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/SourceReportController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="67" column="54" selection-start-line="67" selection-start-column="54" selection-end-line="67" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1477054172539" expanded="true" signature="3349:3681" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/PurityReportController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="83" column="5" selection-start-line="83" selection-start-column="5" selection-end-line="83" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1477054172567" expanded="true" signature="3635:4022" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
