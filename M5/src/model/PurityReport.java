@@ -36,10 +36,6 @@ public class PurityReport extends Report{
         this.pCond = pCond;
     }
 
-    @Override
-    public String getType() {
-        return "Purity";
-    }
 
     @Override
     public String toString() {

@@ -72,7 +72,7 @@ public class SourceReportController {
                     Double.parseDouble(longitudeTextField.getText()));
             rep.setSc(waterConditionBox.getValue());
             rep.setSt(waterTypeBox.getValue());
-            Model.getInstance().addReport(rep);
+            Model.getInstance().addSourceReport(rep);
             _dialogStage.close();
         }
 

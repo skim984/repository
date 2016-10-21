@@ -66,14 +66,96 @@ public class Model {
 //        accounts.get(0).getProfile().setTitle("Student");
     }
 
-    public boolean addReport(Report report) {
+    public boolean addPurityReport(PurityReport report) {
         for (Report r : reportsList) {
             if (r.getId() == report.getId()) {
                 report.setID(report.getId() + 1);
             }
         }
+
         reportsList.add(report);
 
+        // Add a query in DB
+        try {
+            PreparedStatement preparedStatement;
+            // Insert an account in DB
+            String insertTableSQL = "INSERT INTO Report"
+                    + "(ReportId, ReporterName, DateFormat, Latitude, Longitude) VALUES"
+                    + "(?,?,?,?,?)";
+            preparedStatement = connection.prepareStatement(insertTableSQL);
+
+            preparedStatement.setString(1, Integer.toString(report.getId()));
+            preparedStatement.setString(2, report.getReporterName());
+            preparedStatement.setString(3, report.getDateReported());
+            preparedStatement.setString(4, Double.toString(report.getLocationLatitude()));
+            preparedStatement.setString(5, Double.toString(report.getLocationLongitude()));
+
+            //execute insert SQL Statement
+            preparedStatement.executeUpdate();
+
+            // Insert Profile in BD
+            insertTableSQL = "INSERT INTO PurityReport"
+                    + "(ReportId, VPPM, CPPM, PurityCondition) VALUES"
+                    + "(?,?,?,?)";
+
+            preparedStatement = connection.prepareStatement(insertTableSQL);
+            preparedStatement.setString(1, Integer.toString(report.getId()));
+            preparedStatement.setString(2, Integer.toString(report.getVPPM()));
+            preparedStatement.setString(3, Integer.toString(report.getCPPM()));
+            preparedStatement.setString(4, report.getpCond().getType());
+
+            //execute insert SQL Statement
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return true;
+    }
+
+    public boolean addSourceReport(SourceReport report) {
+        for (Report r : reportsList) {
+            if (r.getId() == report.getId()) {
+                report.setID(report.getId() + 1);
+            }
+        }
+
+        reportsList.add(report);
+
+        // Add a query in DB
+        try {
+            PreparedStatement preparedStatement;
+            // Insert an account in DB
+            String insertTableSQL = "INSERT INTO Report"
+                    + "(ReportId, ReporterName, DateFormat, Latitude, Longitude) VALUES"
+                    + "(?,?,?,?,?)";
+            preparedStatement = connection.prepareStatement(insertTableSQL);
+
+            preparedStatement.setString(1, Integer.toString(report.getId()));
+            preparedStatement.setString(2, report.getReporterName());
+            preparedStatement.setString(3, report.getDateReported());
+            preparedStatement.setString(4, Double.toString(report.getLocationLatitude()));
+            preparedStatement.setString(5, Double.toString(report.getLocationLongitude()));
+
+            //execute insert SQL Statement
+            preparedStatement.executeUpdate();
+
+            // Insert Profile in BD
+            insertTableSQL = "INSERT INTO SourceReport"
+                    + "(ReportId, SourceType, SourceCondition) VALUES"
+                    + "(?,?,?)";
+            preparedStatement = connection.prepareStatement(insertTableSQL);
+
+            preparedStatement.setString(1, Integer.toString(report.getId()));
+            preparedStatement.setString(2, report.getSt().getType());
+            preparedStatement.setString(3, report.getSc().getType());
+
+            //execute insert SQL Statement
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
         return true;
     }
 

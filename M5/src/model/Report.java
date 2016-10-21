@@ -14,16 +14,26 @@ public class Report {
     private DateFormat dateFormat;
     private double locationLatitude;
     private double locationLongitude;
+    private String type;
+
 
     public Report(String name) {
         reporterName = name;
         Random rand = new Random();
         id = rand.nextInt(1000000) + 50000;
-        dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     }
 
     public Report() {
         this("");
+    }
+
+    public double getLocationLatitude() {
+        return locationLatitude;
+    }
+
+    public double getLocationLongitude() {
+        return locationLongitude;
     }
 
     public String getReporterName() { return reporterName; }
@@ -37,7 +47,11 @@ public class Report {
     public void setID(int id) { this.id = id; }
 
     public String getType() {
-        return "None";
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public void setLocation(double longitude, double latitude) {

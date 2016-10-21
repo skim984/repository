@@ -78,7 +78,7 @@ public class PurityReportController {
             pr.setpCond(waterPurityComboBox.getValue());
             pr.setCPPM(Integer.parseInt(contamPPMText.getText()));
             pr.setVPPM(Integer.parseInt(virusPPMText.getText()));
-            model.Model.getInstance().addReport(pr);
+            model.Model.getInstance().addPurityReport(pr);
             _dialogStage.close();
         }
     }
