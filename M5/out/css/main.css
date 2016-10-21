@@ -1,9 +1,9 @@
 .welcomescreen {
-    -fx-background-image: url("../../img/welcome_screen_bg.png");
+    -fx-background-image: url("../img/welcome_screen_bg.png");
 }
 
 .loginscreen    {
-    -fx-background-image: url("../../img/login_screen_bg.png");
+    -fx-background-image: url("../img/login_screen_bg.png");
 }
 
 .button {
