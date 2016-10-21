@@ -23,6 +23,7 @@ public class MainFXApplication extends Application {
 
     /** the main List of Reports, to be replaced with an SQL call later */
     private List<Report> currentReportsList;
+    
     /** the main container for the application window */
     private Stage mainScreen;
 

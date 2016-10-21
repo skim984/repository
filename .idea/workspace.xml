@@ -2,24 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9515d1c-5ecf-4584-b210-93733b572afe" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/M5/out/controller/LoginScreenController.class" afterPath="$PROJECT_DIR$/M5/out/controller/LoginScreenController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/M5/out/controller/MainScreenController.class" afterPath="$PROJECT_DIR$/M5/out/controller/MainScreenController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/M5/out/controller/PurityReportController.class" afterPath="$PROJECT_DIR$/M5/out/controller/PurityReportController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/M5/out/controller/RegisterScreenController.class" afterPath="$PROJECT_DIR$/M5/out/controller/RegisterScreenController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/M5/out/controller/SourceReportController.class" afterPath="$PROJECT_DIR$/M5/out/controller/SourceReportController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/M5/out/controller/ViewReportController.class" afterPath="$PROJECT_DIR$/M5/out/controller/ViewReportController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/M5/out/fxapp/MainFXApplication.class" afterPath="$PROJECT_DIR$/M5/out/fxapp/MainFXApplication.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/M5/out/model/Model.class" afterPath="$PROJECT_DIR$/M5/out/model/Model.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/M5/out/model/PurityReport.class" afterPath="$PROJECT_DIR$/M5/out/model/PurityReport.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/M5/out/model/Report.class" afterPath="$PROJECT_DIR$/M5/out/model/Report.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/M5/out/model/SourceReport.class" afterPath="$PROJECT_DIR$/M5/out/model/SourceReport.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/repository.iml" afterPath="$PROJECT_DIR$/.idea/repository.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/M5/out/css/main.css" afterPath="$PROJECT_DIR$/M5/out/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/M5/out/view/MainScreen.fxml" afterPath="$PROJECT_DIR$/M5/out/view/MainScreen.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/M5/out/view/PurityReport.fxml" afterPath="$PROJECT_DIR$/M5/out/view/PurityReport.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/M5/out/view/SourceReport.fxml" afterPath="$PROJECT_DIR$/M5/out/view/SourceReport.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/M5/out/view/ViewReportScreen.fxml" afterPath="$PROJECT_DIR$/M5/out/view/ViewReportScreen.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/M5/src/fxapp/MainFXApplication.java" afterPath="$PROJECT_DIR$/M5/src/fxapp/MainFXApplication.java" />
     </list>
     <ignored path="repository.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,24 +23,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainFXApplication.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainFXApplication.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/M5/src/fxapp/MainFXApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1410">
-              <caret line="70" column="6" selection-start-line="70" selection-start-column="6" selection-end-line="70" selection-end-column="6" />
+            <state relative-caret-position="293">
+              <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainScreenController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/M5/src/controller/MainScreenController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -83,24 +55,46 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Model.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/M5/src/model/Model.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="780">
+              <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="PurityReportController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/M5/src/controller/PurityReportController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="9" column="12" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="12" />
+            <state relative-caret-position="150">
+              <caret line="78" column="26" selection-start-line="78" selection-start-column="15" selection-end-line="78" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Report.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/M5/src/model/Report.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="422">
+              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Model.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/M5/src/model/Model.java">
+      <file leaf-file-name="Profile.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/M5/src/model/Profile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="30">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -120,16 +114,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
               <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RegisterScreenController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/M5/src/controller/RegisterScreenController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1320">
-              <caret line="58" column="4" selection-start-line="58" selection-start-column="4" selection-end-line="65" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -167,9 +151,9 @@
         <option value="$PROJECT_DIR$/M5/src/controller/ViewReportController.java" />
         <option value="$PROJECT_DIR$/M5/src/controller/LoginScreenController.java" />
         <option value="$PROJECT_DIR$/M5/src/controller/WelcomeScreenController.java" />
-        <option value="$PROJECT_DIR$/M5/src/fxapp/MainFXApplication.java" />
         <option value="$PROJECT_DIR$/M5/src/controller/ProfileScreenController.java" />
         <option value="$PROJECT_DIR$/M5/src/model/Model.java" />
+        <option value="$PROJECT_DIR$/M5/src/fxapp/MainFXApplication.java" />
       </list>
     </option>
   </component>
@@ -259,6 +243,72 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="repository" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="repository" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="M5" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="repository" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="repository" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="M5" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fxapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="repository" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="repository" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="M5" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -635,7 +685,14 @@
       <option name="project" value="LOCAL" />
       <updated>1476769564506</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Working on MYSQL">
+      <created>1477013856804</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1477013856804</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -698,7 +755,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="9" column="12" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="12" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -964,14 +1023,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/M5/src/model/Report.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/M5/src/model/PurityReport.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -980,17 +1031,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/M5/src/model/Profile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-163">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/M5/src/controller/ViewReportController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="461">
           <caret line="64" column="49" selection-start-line="64" selection-start-column="49" selection-end-line="64" selection-end-column="49" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -998,6 +1043,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="158">
           <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1008,14 +1054,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/M5/src/controller/PurityReportController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="9" column="12" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1072,21 +1110,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/M5/src/fxapp/MainFXApplication.java">
+    <entry file="file://$PROJECT_DIR$/M5/src/model/Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1410">
-          <caret line="70" column="6" selection-start-line="70" selection-start-column="6" selection-end-line="70" selection-end-column="6" />
+        <state relative-caret-position="780">
+          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/M5/src/model/Report.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/M5/src/model/Model.java">
+    <entry file="file://$PROJECT_DIR$/M5/src/model/Profile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state relative-caret-position="30">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/M5/src/controller/PurityReportController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="78" column="26" selection-start-line="78" selection-start-column="15" selection-end-line="78" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/M5/src/fxapp/MainFXApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
