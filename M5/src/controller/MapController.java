@@ -1,13 +1,19 @@
 package controller;
 import com.lynden.gmapsfx.GoogleMapView;
 import com.lynden.gmapsfx.MapComponentInitializedListener;
+import com.lynden.gmapsfx.javascript.event.UIEventType;
 import com.lynden.gmapsfx.javascript.object.*;
 import fxapp.MainFXApplication;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import model.Model;
+import model.Report;
+import netscape.javascript.JSObject;
+
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 
@@ -70,6 +76,33 @@ public class MapController implements Initializable, MapComponentInitializedList
                 .mapType(MapTypeIdEnum.ROADMAP);
 
         map = mapView.createMap(options);
+
+        /** now we communciate with the model to get all the locations for markers */
+        List<Report> reports = Model.getInstance().getReports();
+
+        for (Report r: reports) {
+            MarkerOptions markerOptions = new MarkerOptions();
+            LatLong loc = new LatLong(r.getLocationLatitude(), r.getLocationLongitude());
+
+            markerOptions.position( loc )
+                    .visible(Boolean.TRUE);
+                    String title = String.valueOf(r.getId());
+                    markerOptions.title(title);
+
+            Marker marker = new Marker( markerOptions );
+
+            map.addUIEventHandler(marker,
+                    UIEventType.click,
+                    (JSObject obj) -> {
+                        InfoWindowOptions infoWindowOptions = new InfoWindowOptions();
+                        infoWindowOptions.content(r.toString());
+
+                        InfoWindow window = new InfoWindow(infoWindowOptions);
+                        window.open(map, marker);});
+
+            map.addMarker(marker);
+
+        }
     }
 
 

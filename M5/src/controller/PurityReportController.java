@@ -73,8 +73,8 @@ public class PurityReportController {
     private void handleOKPressed() throws IOException {
         PurityReport pr = new PurityReport(account.getId());
         if (isInputValid()) {
-            pr.setLocation(Double.parseDouble(latitudeTextField.getText()),
-                    Double.parseDouble(longitudeTextField.getText()));
+            pr.setLocation(Double.parseDouble(longitudeTextField.getText()),
+                    Double.parseDouble(latitudeTextField.getText()));
             pr.setpCond(waterPurityComboBox.getValue());
             pr.setCPPM(Integer.parseInt(contamPPMText.getText()));
             pr.setVPPM(Integer.parseInt(virusPPMText.getText()));

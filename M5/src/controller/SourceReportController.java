@@ -68,8 +68,8 @@ public class SourceReportController {
     private void handleOKPressed() throws IOException {
         SourceReport rep = new SourceReport(account.getId());
         if(isInputValid()) {
-            rep.setLocation(Double.parseDouble(latitudeTextField.getText()),
-                    Double.parseDouble(longitudeTextField.getText()));
+            rep.setLocation(Double.parseDouble(longitudeTextField.getText()),
+                    Double.parseDouble(latitudeTextField.getText()));
             rep.setSc(waterConditionBox.getValue());
             rep.setSt(waterTypeBox.getValue());
             Model.getInstance().addSourceReport(rep);
