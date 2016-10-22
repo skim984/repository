@@ -11,7 +11,7 @@ import java.util.Random;
 public class Report {
     private int id;
     private String reporterName;
-    private DateFormat dateFormat;
+    private String dateFormat;
     private double locationLatitude;
     private double locationLongitude;
     private String type;
@@ -21,7 +21,9 @@ public class Report {
         reporterName = name;
         Random rand = new Random();
         id = rand.nextInt(1000000) + 50000;
-        dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        DateFormat _dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
+        dateFormat = _dateFormat.format(date);
     }
 
     public Report() {
@@ -38,9 +40,13 @@ public class Report {
 
     public String getReporterName() { return reporterName; }
     public String getDateReported() {
-        Date date = new Date();
-        return dateFormat.format(date);
+        return dateFormat;
     }
+
+    public void setDateFormat(String dateFormat) {
+        this.dateFormat = dateFormat;
+    }
+
     public int getId() {
         return id;
     }

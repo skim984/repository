@@ -4,6 +4,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,6 +66,67 @@ public class Model {
 //        accounts.get(0).getProfile().setEmail("ezweb28@gmail.com");
 //        accounts.get(0).getProfile().setAddress("Georgia");
 //        accounts.get(0).getProfile().setTitle("Student");
+
+        try {
+            Statement statement;
+            statement = connection.createStatement();
+            String sql;
+            sql = "SELECT * FROM Report NATURAL JOIN PurityReport";
+            ResultSet rs = statement.executeQuery(sql);
+
+            //Extract data from result set
+            while (rs.next()) {
+                //retrieve by column name
+                int _reportId = Integer.parseInt(rs.getString("ReportId"));
+                String _reporterName = rs.getString("ReporterName");
+                String _dateFormat = rs.getTimestamp("DateFormat").toString().substring(0,19);
+                double _latitude = Double.parseDouble(rs.getString("Latitude"));
+                double _longitude = Double.parseDouble(rs.getString("Longitude"));
+                int _VPPM = Integer.parseInt(rs.getString("VPPM"));
+                int _CPPM = Integer.parseInt(rs.getString("CPPM"));
+                String _purityCondition = rs.getString("PurityCondition");
+
+
+                PurityReport report = new PurityReport(_reporterName);
+                report.setID(_reportId);
+                report.setDateFormat(_dateFormat);
+                report.setLocation(_longitude, _latitude);
+                report.setVPPM(_VPPM);
+                report.setCPPM(_CPPM);
+                report.setpCond(PurityCondition.valueOf(_purityCondition));
+
+                reportsList.add(report);
+            }
+
+            sql = "SELECT * FROM Report NATURAL JOIN SourceReport";
+            rs = statement.executeQuery(sql);
+
+            //Extract data from result set
+            while (rs.next()) {
+                //retrieve by column name
+                int _reportId = Integer.parseInt(rs.getString("ReportId"));
+                String _reporterName = rs.getString("ReporterName");
+                String _dateFormat = rs.getTimestamp("DateFormat").toString().substring(0,19);
+                double _latitude = Double.parseDouble(rs.getString("Latitude"));
+                double _longitude = Double.parseDouble(rs.getString("Longitude"));
+                String _sourceType = rs.getString("SourceType");
+                String _sourceCondition = rs.getString("SourceCondition");
+
+                SourceReport report = new SourceReport(_reporterName);
+                report.setID(_reportId);
+                report.setDateFormat(_dateFormat);
+                report.setLocation(_longitude, _latitude);
+                report.setSt(SourceType.valueOf(_sourceType));
+                report.setSc(SourceCondition.valueOf(_sourceCondition));
+
+                reportsList.add(report);
+            }
+
+            rs.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 
     public boolean addPurityReport(PurityReport report) {
@@ -102,7 +165,7 @@ public class Model {
             preparedStatement.setString(1, Integer.toString(report.getId()));
             preparedStatement.setString(2, Integer.toString(report.getVPPM()));
             preparedStatement.setString(3, Integer.toString(report.getCPPM()));
-            preparedStatement.setString(4, report.getpCond().getType());
+            preparedStatement.setString(4, report.getpCond().getCode());
 
             //execute insert SQL Statement
             preparedStatement.executeUpdate();
@@ -147,8 +210,8 @@ public class Model {
             preparedStatement = connection.prepareStatement(insertTableSQL);
 
             preparedStatement.setString(1, Integer.toString(report.getId()));
-            preparedStatement.setString(2, report.getSt().getType());
-            preparedStatement.setString(3, report.getSc().getType());
+            preparedStatement.setString(2, report.getSt().getCode());
+            preparedStatement.setString(3, report.getSc().getCode());
 
             //execute insert SQL Statement
             preparedStatement.executeUpdate();
