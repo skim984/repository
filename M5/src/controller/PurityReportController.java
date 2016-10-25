@@ -5,7 +5,9 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import model.Account;
 import model.PurityCondition;
@@ -57,11 +59,31 @@ public class PurityReportController {
 
 
     public void setAccount(Account acct) {
-        account = acct;
+        this.account = acct;
     }
 
     public void setDialogStage(Stage dialogStage) {
         _dialogStage = dialogStage;
+    }
+
+    public boolean isAllowed(Account acct) {
+        if (acct.getAccountType().equals("USER")
+                || acct.getAccountType().equals("ADMINISTRATOR")) {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setTitle("Invalid User Level");
+            a.setHeaderText("User Permissions Denied");
+            a.setContentText("You don't have permission to " +
+                    "submit a purity report. If you feel this is " +
+                    "an error, please contact the site administrators.");
+            a.getDialogPane().getChildren().stream()
+                    .filter(node -> node instanceof Label)
+                    .forEach(node ->
+                            ((Label)node)
+                                    .setMinHeight(Region.USE_PREF_SIZE));
+            a.showAndWait();
+            return false;
+        }
+        return true;
     }
 
     @FXML

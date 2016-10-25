@@ -240,11 +240,11 @@ public class MainFXApplication extends Application {
 
             // Set the person into the controller.
             PurityReportController controller = loader.getController();
-            controller.setAccount(currentAccount);
-            controller.setDialogStage(dialogStage);
-
-            // Show the dialog and wait until the user closes it
-            dialogStage.showAndWait();
+            if (controller.isAllowed(currentAccount)) {
+                controller.setAccount(currentAccount);
+                controller.setDialogStage(dialogStage);
+                dialogStage.showAndWait();
+            }
 
 
         } catch (IOException e) {
