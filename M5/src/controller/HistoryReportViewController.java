@@ -39,13 +39,16 @@ public class HistoryReportViewController {
 
     public void barPop() {
         //retrieveData();
-        CategoryAxis xAxis = new CategoryAxis();
+/*        CategoryAxis xAxis = new CategoryAxis();
         String[] months = new String[]{"January","February","March","April","May","June",
                 "July","August","September","October","November","December"};
         xAxis.setCategories(FXCollections.observableArrayList(months));
         NumberAxis yAxis = new NumberAxis("PPM", 0.0d, 1100000.0d, 100000.0d);
-        List<XYChart.Series> data = FXCollections.observableArrayList()
-        histOutputBarGraph = new BarChart(xAxis,yAxis,);
+        List<XYChart.Series> data = FXCollections.observableArrayList();
+        for (int i = 0; i < 12; i++) {
+            data.add(new BarChart.Series("" + months[i], FXCollections.observableArrayList(new Integer[]{pureList.get("" + months[i])}) ));
+        } */
+        //histOutputBarGraph = new BarChart(xAxis,yAxis,data);
 
     }
 

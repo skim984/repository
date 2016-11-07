@@ -27,7 +27,6 @@ import java.util.logging.Logger;
  * Created by nick on 11/1/16.
  */
 public class HistoryReportInController {
-    private static final Logger LOGGER = Logger.getLogger("MainFXApplication");
     @FXML
     private TextField histSubmitLongText;
     @FXML
@@ -39,8 +38,6 @@ public class HistoryReportInController {
     private Stage _dialogStage;
     private Account account;
     private MainFXApplication mainApplication;
-    private List<Report> reportsList;
-    private Map<String, Integer> pureList;
 
     public void setAccount(Account a) {
         account = a;
