@@ -36,6 +36,11 @@ public class PurityReport extends Report{
         this.pCond = pCond;
     }
 
+    @Override
+    public String getType() {
+        return "Purity";
+    }
+
 
     @Override
     public String toString() {
@@ -43,7 +48,7 @@ public class PurityReport extends Report{
                 "\n\tLocation: " + getLocation() +
                 "\n\tVirus PPM: " + getVPPM() +
                 "\n\tContaminant PPM: " + getCPPM() +
-                "\n\tCondition " + getpCond();
+                "\n\tCondition: " + getpCond();
     }
 
 }

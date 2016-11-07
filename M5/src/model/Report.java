@@ -21,9 +21,9 @@ public class Report {
         reporterName = name;
         Random rand = new Random();
         id = rand.nextInt(1000000) + 50000;
-        DateFormat _dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        DateFormat toFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date date = new Date();
-        dateFormat = _dateFormat.format(date);
+        dateFormat = toFormat.format(date);
     }
 
     public Report() {

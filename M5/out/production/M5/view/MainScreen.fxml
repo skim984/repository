@@ -5,17 +5,11 @@
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="705.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainScreenController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="705.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainScreenController">
     <top>
         <ToolBar prefHeight="25.0" prefWidth="600.0">
-            <items>
-            <Button fx:id="createEditProfileButton" mnemonicParsing="false" onAction="#btnCreateEditProfileAction" text="Create / Edit Profile" />
-            <Button fx:id="sourceButton" mnemonicParsing="false" onAction="#btnSourceAction" text="Submit Source Report" />
-            <Button fx:id="purityButton" mnemonicParsing="false" onAction="#btnPurityAction" text="Submit Purity Report" />
-            <Button fx:id="buttonViewReport" mnemonicParsing="false" onAction="#btnViewAction" text="View Reports" />
-            <Button fx:id="buttonViewMap" mnemonicParsing="false" onAction="#btnMapAction" text="View Map" />
-            </items>
          <BorderPane.margin>
             <Insets />
          </BorderPane.margin>
@@ -37,4 +31,32 @@
          </padding>
       </ButtonBar>
    </bottom>
+   <left>
+      <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <buttons>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="createEditProfileButton" layoutX="8.0" layoutY="128.0" mnemonicParsing="false" onAction="#btnCreateEditProfileAction" text="Create / Edit Profile" />
+               </children>
+            </Pane>
+         </buttons>
+      </ButtonBar>
+   </left>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="sourceButton" layoutX="63.0" layoutY="94.0" mnemonicParsing="false" onAction="#btnSourceAction" text="Submit Source Report" />
+            <Button fx:id="purityButton" layoutX="66.0" layoutY="172.0" mnemonicParsing="false" onAction="#btnPurityAction" text="Submit Purity Report" />
+         </children>
+      </Pane>
+   </center>
+   <right>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="buttonViewReport" layoutX="59.0" layoutY="94.0" mnemonicParsing="false" onAction="#btnViewAction" text="View Reports" />
+            <Button fx:id="buttonViewMap" layoutX="70.0" layoutY="176.0" mnemonicParsing="false" onAction="#btnMapAction" text="View Map" />
+            <Button layoutX="26.0" layoutY="248.0" mnemonicParsing="false" onAction="#btnHistInitAction" text="View Historical Reports" />
+         </children>
+      </Pane>
+   </right>
 </BorderPane>

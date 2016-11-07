@@ -2,7 +2,9 @@ package fxapp;
 
 import controller.*;
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.LoadException;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
@@ -14,6 +16,7 @@ import model.Account;
 
 import java.io.IOException;
 
+import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -331,4 +334,33 @@ public class MainFXApplication extends Application {
         launch(args);
     }
 
+    public void showHistIn() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainFXApplication.class.getResource("../view/HistoryReportInputScreen.fxml"));
+            AnchorPane page = loader.load();
+
+            // Create the dialog Stage.
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("View Historical Reports");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(mainScreen);
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+
+            // Set the person into the controller, if they have the righer
+            boolean b = false;
+            HistoryReportInController controller = loader.getController();
+            if (controller.isAllowed(currentAccount)) {
+                controller.setAccount(currentAccount);
+                controller.setDialogStage(dialogStage);
+                controller.setMainApp(this);
+                dialogStage.showAndWait();
+            }
+
+        } catch (IOException e) {
+            LOGGER.log(Level.SEVERE, "Failed to find the fxml file for History Report View!!");
+            e.printStackTrace();
+        }
+    }
 }

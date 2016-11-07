@@ -64,4 +64,7 @@ public class MainScreenController {
 
     @FXML
     private void btnMapAction()   { mainApplication.showMap(); }
+
+    @FXML
+    private void btnHistInitAction() { mainApplication.showHistIn(); }
 }

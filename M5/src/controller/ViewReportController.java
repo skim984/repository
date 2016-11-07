@@ -43,23 +43,24 @@ public class ViewReportController {
     public void populateView() {
         List<Report> reportsList = FXCollections.observableArrayList(Model.getInstance().getReports());
         if(_account != null) {
-            if (_account.getAccountType().equals(AccountType.UR.toString())) {
-                List<Report> tempRep = new ArrayList<>();
-                for (Report r : reportsList) {
-                    if (!(r.getType().equals("Purity"))) {
-                        tempRep.add(r);
-                    }
-                }
-                reportListView = new ListView<>(FXCollections.observableArrayList(tempRep));
-            } else {
-                reportListView = new ListView<>(FXCollections.observableArrayList(reportsList));
-            }
-            reportListView.setEditable(false);
-            StackPane root = new StackPane();
-            root.getChildren().add(reportListView);
-            _dialogStage.setScene(new Scene(root, 600, 300));
+           if (_account.getAccountType().equals(AccountType.UR.toString())) {
+               List<Report> tempRep = new ArrayList<>();
+               for (Report r : reportsList) {
+                   if (!(r.getType().equals("Purity"))) {
+                       tempRep.add(r);
+                   }
+               }
+               reportListView = new ListView<>(FXCollections.observableArrayList(tempRep));
+           } else {
+               reportListView = new ListView<>(FXCollections.observableArrayList(reportsList));
+           }
+           // reportListView = new ListView<>(FXCollections.observableArrayList(reportsList))
+           reportListView.setEditable(false);
+           StackPane root = new StackPane();
+           root.getChildren().add(reportListView);
+           _dialogStage.setScene(new Scene(root, 600, 300));
 //            _dialogStage.show();
-        }
+       }
     }
 
     @FXML
