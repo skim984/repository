@@ -92,6 +92,17 @@ public class RegisterScreenController {
         if (registerIdField.getText() == null || registerIdField.getText().length() == 0) {
             errorMessage += "No valid account name!\n";
         }
+
+        String str = registerIdField.getText();
+        char ch[] = str.toCharArray();
+        for(int i = 0; i < ch.length; i++) {
+            if (!((48 <= (int)ch[i] && 57 >= (int)ch[i]) ||
+                    (97 <= (int)ch[i] && 122 >= (int)ch[i]))) {
+                errorMessage += ch[i] + " is invalid account name";
+                i = ch.length;
+            }
+        }
+
         if (registerPasswordField.getText() == null || registerPasswordField.getText().length() == 0) {
             errorMessage += "No valid password entered!\n";
         }
