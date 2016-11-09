@@ -4,6 +4,8 @@ import fxapp.MainFXApplication;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.chart.*;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
@@ -23,7 +25,7 @@ public class HistoryReportViewController {
     private double latitude;
     private double longitude;
     @FXML
-    BarChart histOutputBarGraph;
+    LineChart histOutputLineGraph;
     private MainFXApplication mainFXApplication;
     private Map<String, Integer> pureList;
     private Account account;
@@ -38,33 +40,32 @@ public class HistoryReportViewController {
     }
 
     public void barPop() {
-        //retrieveData();
-/*        CategoryAxis xAxis = new CategoryAxis();
-        String[] months = new String[]{"January","February","March","April","May","June",
-                "July","August","September","October","November","December"};
-        xAxis.setCategories(FXCollections.observableArrayList(months));
-        NumberAxis yAxis = new NumberAxis("PPM", 0.0d, 1100000.0d, 100000.0d);
-        List<XYChart.Series> data = FXCollections.observableArrayList();
-        for (int i = 0; i < 12; i++) {
-            data.add(new BarChart.Series("" + months[i], FXCollections.observableArrayList(new Integer[]{pureList.get("" + months[i])}) ));
-        } */
-        //histOutputBarGraph = new BarChart(xAxis,yAxis,data);
+        //defining the axes
+        retrieveData();
+        final NumberAxis xAxis = new NumberAxis();
+        final NumberAxis yAxis = new NumberAxis();
+        xAxis.setLabel("Number of Month");
+        //creating the chart
+        histOutputLineGraph = new LineChart<>(xAxis,yAxis);
 
+        //defining a series
+        XYChart.Series series = new XYChart.Series();
+        series.setName("Data");
+        //populating the series with data
+        for (int i = 1; i < 13; i++) {
+            series.getData().add(new XYChart.Data(i, pureList.get(i)));
+        }
+        histOutputLineGraph.getData().add(series);
     }
 
     private void retrieveData() {
         List<Report> reportList = FXCollections.observableArrayList(Model.getInstance().getReports());
-        if (!isAllowed()) {
+        if (isAllowed()) {
             for (Report r : reportList) {
                 if (isValidReport(r)) {
-                    //Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
-                    //calendar.setTime(new Date(r.getDateReported()));
-                    //String month = new SimpleDateFormat("MMM").format(calendar.getTime());
                     String month = "10";
                     if (type.equals("Contaminant")) {
                         if (!pureList.containsKey(month)) {
-                            //pureList.put(new SimpleDateFormat("MMM").format(calendar.getTime()),
-                            // ((PurityReport) r).getCPPM());
                             pureList.put(month, ((PurityReport) r).getCPPM());
                         } else {
                             int PPMavg = (int) ((pureList.get(month) + ((PurityReport) r).getCPPM()) * 0.5);
@@ -72,8 +73,7 @@ public class HistoryReportViewController {
                         }
                     } else {
                         if (!pureList.containsKey(month)) {
-                            // pureList.put(new SimpleDateFormat("MMM").format(calendar.getTime()),
-                            // ((PurityReport) r).getVPPM());
+
                             pureList.put(month, ((PurityReport) r).getCPPM());
 
                         } else {
@@ -87,6 +87,8 @@ public class HistoryReportViewController {
         } else {
             throw new NullPointerException("User account is null! Something went wrong.");
         }
+        System.out.println(pureList.values().toString());
+        System.out.println(pureList.keySet().toString());
     }
 
     private boolean isValidReport(Report r) {
