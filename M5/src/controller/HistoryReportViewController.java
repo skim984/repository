@@ -2,18 +2,13 @@ package controller;
 
 import fxapp.MainFXApplication;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.chart.*;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import model.*;
-
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -24,8 +19,14 @@ public class HistoryReportViewController {
     private int year;
     private double latitude;
     private double longitude;
+
     @FXML
     LineChart histOutputLineGraph;
+    @FXML
+    CategoryAxis histOutputXAxis;
+    @FXML
+    NumberAxis histOutputYAxis;
+
     private MainFXApplication mainFXApplication;
     private Map<String, Integer> pureList;
     private Account account;
@@ -42,11 +43,18 @@ public class HistoryReportViewController {
     public void barPop() {
         //defining the axes
         retrieveData();
-        final NumberAxis xAxis = new NumberAxis();
-        final NumberAxis yAxis = new NumberAxis();
-        xAxis.setLabel("Number of Month");
+        histOutputXAxis = new CategoryAxis();
+        histOutputXAxis.setLabel("Months");
+        String[] months = new String[12];
+        for (int i = 0; i < 12; i++) {
+            months[i] = "" + (i + 1);
+        }
+        histOutputXAxis.setCategories(FXCollections.observableArrayList(months));
+
+        histOutputYAxis = new NumberAxis();
+
         //creating the chart
-        histOutputLineGraph = new LineChart<>(xAxis,yAxis);
+        histOutputLineGraph = new LineChart<>(histOutputXAxis, histOutputYAxis);
 
         //defining a series
         XYChart.Series series = new XYChart.Series();

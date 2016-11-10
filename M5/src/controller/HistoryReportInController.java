@@ -125,18 +125,24 @@ public class HistoryReportInController {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(MainFXApplication.class.getResource("../view/HistoryReportOutputScreen.fxml"));
                 AnchorPane newPage;
+
+                //create the dialog stage for the new window
                 newPage = fxmlLoader.load();
                 Stage newStage = new Stage();
                 newStage.setTitle("View Historical Reports");
                 newStage.initModality(Modality.WINDOW_MODAL);
                 Scene newScene = new Scene(newPage);
+                newStage.setScene(newScene);
+
+                //set the person into the controller
                 HistoryReportViewController viewController = fxmlLoader.getController();
                 viewController.initialize(getParams());
                 viewController.setAccount(this.account);
+
+                //get params and pass them into the view
                 viewController.setDialogStage(newStage);
                 viewController.barPop();
-                viewController.setMainFXApplication(mainApplication);
-                newStage.setScene(newScene);
+
                 newStage.showAndWait();
 
             } catch (IOException e) {

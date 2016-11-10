@@ -11,10 +11,10 @@
    <children>
       <LineChart fx:id="histOutputLineGraph" layoutX="14.0">
         <xAxis>
-          <CategoryAxis fx:id="histOutputXAxis" animated="false" endMargin="12.0" label="Month" side="BOTTOM" startMargin="1.0" tickLabelGap="0.0" />
+          <CategoryAxis fx:id="histOutputXAxis" animated="false" endMargin="12.0" label="Month" side="BOTTOM" startMargin="1.0" tickLabelGap="1.0" />
         </xAxis>
         <yAxis>
-          <NumberAxis animated="false" label="PPM" minorTickCount="0" side="LEFT" tickLabelGap="1.0" upperBound="1000000.0" />
+          <NumberAxis fx:id="histOutputYAxis" animated="false" label="PPM" minorTickCount="0" side="LEFT" tickLabelGap="1.0" upperBound="1000000.0" />
         </yAxis>
       </LineChart>
       <Button defaultButton="true" layoutX="521.0" layoutY="360.0" mnemonicParsing="false" onAction="#handleCancelPressed" text="OK">
