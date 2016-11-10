@@ -15,6 +15,8 @@ import java.util.List;
 public class Model {
     /** Set Model up as a singleton design pattern */
     private static final Model instance = new Model();
+
+    /** Interact with controllers */
     public static Model getInstance() { return instance; }
 
     /** a list of all the accounts in the system */
@@ -129,6 +131,12 @@ public class Model {
 
     }
 
+    /**
+     * Add a purity report in report array and DB
+     * @param report report that will be put in array and DB
+     * @return true if there's no error occur while putting the report in array and DB
+     * false if there's an error occur
+     */
     public boolean addPurityReport(PurityReport report) {
         for (Report r : reportsList) {
             if (r.getId() == report.getId()) {
@@ -172,10 +180,17 @@ public class Model {
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+            return false;
         }
         return true;
     }
 
+    /**
+     * Add a source report in report array and DB
+     * @param report report that will be put in array and DB
+     * @return true if there's no error occur while putting the report in array and DB
+     * false if there's an error occur
+     */
     public boolean addSourceReport(SourceReport report) {
         for (Report r : reportsList) {
             if (r.getId() == report.getId()) {
@@ -222,6 +237,10 @@ public class Model {
         return true;
     }
 
+    /**
+     * called by controllers for initialize reports values in View
+     * @return List that contains all reports.
+     */
     public List<Report> getReports() {
         return reportsList;
     }
@@ -334,6 +353,7 @@ public class Model {
         //return the success signal
         return true;
     }
+
 
     public Account findAccount(String id, String password) {
 
