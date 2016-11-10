@@ -15,7 +15,6 @@ public class junit_sunpil_kim {
      * The test fixture
      */
     Model current;
-    Account account;
 
     /**
      * This method is run before each test
@@ -26,7 +25,6 @@ public class junit_sunpil_kim {
     @Before
     public void setUp() throws Exception {
         current = Model.getInstance();
-        account = current.findAccount("user","pass");
     }
 
 
@@ -35,7 +33,7 @@ public class junit_sunpil_kim {
      */
     @Test
     public void testNullIdAccount() {
-        Assert.assertNull(current.findAccount(null,null));
+        Assert.assertNull("Report should be null!",current.findAccount(null,null));
     }
 
     /**
@@ -43,8 +41,7 @@ public class junit_sunpil_kim {
      */
     @Test
     public void testWrongIdAccount() {
-        Account temp = current.findAccount("abcdefg","pass");
-        Assert.assertNotEquals(account, temp);
+        Assert.assertNull("Report should be null", current.findAccount("abcdefg","pass"));
     }
 
     /**
@@ -52,8 +49,7 @@ public class junit_sunpil_kim {
      */
     @Test
     public void testWrongPasswordAccount() {
-        Account temp = current.findAccount("user","passs");
-        Assert.assertNotEquals(account, temp);
+        Assert.assertNull("Report should be null", current.findAccount("user","passs"));
     }
 
     /**
@@ -61,8 +57,7 @@ public class junit_sunpil_kim {
      */
     @Test
     public void testCorrectIdPasswordAccount() {
-        Account temp = current.findAccount("user","pass");
-        Assert.assertEquals(account, temp);
+        Assert.assertEquals("wrong id!", "user", current.findAccount("user","pass").getId());
     }
 
 
