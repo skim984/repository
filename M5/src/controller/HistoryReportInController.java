@@ -1,8 +1,6 @@
 package controller;
 
 import fxapp.MainFXApplication;
-import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -134,11 +132,13 @@ public class HistoryReportInController {
                 Scene newScene = new Scene(newPage);
                 HistoryReportViewController viewController = fxmlLoader.getController();
                 viewController.initialize(getParams());
-                viewController.setAccount(account);
+                viewController.setAccount(this.account);
+                viewController.setDialogStage(newStage);
                 viewController.barPop();
                 viewController.setMainFXApplication(mainApplication);
                 newStage.setScene(newScene);
                 newStage.showAndWait();
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -146,7 +146,7 @@ public class HistoryReportInController {
         }
     }
 
-    public String[] getParams() {
+    private String[] getParams() {
         return new String[]{histSubmitLatText.getText(), histSubmitLongText.getText(), histSubmitYearText.getText(), PPMTypeComboBox.getValue()};
     }
 }
