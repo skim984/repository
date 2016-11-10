@@ -4,8 +4,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -386,6 +384,9 @@ public class Model {
     }
 
     public List<Report> findReportByUser(String reporterName) {
+        if (reporterName == null){
+            return null;
+        }
         List<Report> tempList = new ArrayList<>();
         for (Report r : reportsList) {
             // check each reporter name/user id
