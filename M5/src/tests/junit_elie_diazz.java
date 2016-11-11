@@ -12,7 +12,7 @@ public class junit_elie_diazz {
     /**
      * The test things
      */
-    Model current;
+    private Model current;
 
     /**
      * This method is run before each test

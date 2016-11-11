@@ -49,10 +49,7 @@ public class Model {
                 String _email = rs.getString("Email");
                 String _address = rs.getString("Address");
                 String _title = rs.getString("Title");
-                Account account = new Account();
-                account.setId(_id);
-                account.setPassword(_pwd);
-                account.setAccountType(_accountType);
+                Account account = new Account(_id, _pwd, _accountType);
                 account.getProfile().setEmail(_email);
                 account.getProfile().setAddress(_address);
                 account.getProfile().setTitle(_title);
@@ -132,10 +129,8 @@ public class Model {
     /**
      * Add a purity report in report array and DB
      * @param report report that will be put in array and DB
-     * @return true if there's no error occur while putting the report in array and DB
-     * false if there's an error occur
      */
-    public boolean addPurityReport(PurityReport report) {
+    public void addPurityReport(PurityReport report) {
         for (Report r : reportsList) {
             if (r.getId() == report.getId()) {
                 report.setID(report.getId() + 1);
@@ -178,18 +173,14 @@ public class Model {
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-            return false;
         }
-        return true;
     }
 
     /**
      * Add a source report in report array and DB
      * @param report report that will be put in array and DB
-     * @return true if there's no error occur while putting the report in array and DB
-     * false if there's an error occur
      */
-    public boolean addSourceReport(SourceReport report) {
+    public void addSourceReport(SourceReport report) {
         for (Report r : reportsList) {
             if (r.getId() == report.getId()) {
                 report.setID(report.getId() + 1);
@@ -232,7 +223,6 @@ public class Model {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        return true;
     }
 
     /**
@@ -243,7 +233,7 @@ public class Model {
         return reportsList;
     }
 
-    private boolean connectJDBC() {
+    private void connectJDBC() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException e) {
@@ -264,9 +254,6 @@ public class Model {
 
         if (connection != null) {
             System.out.println("GOOD");
-            return true;
-        } else {
-            return false;
         }
     }
 

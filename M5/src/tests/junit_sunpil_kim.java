@@ -13,7 +13,7 @@ public class junit_sunpil_kim {
     /**
      * The test fixture
      */
-    Model current;
+    private Model current;
 
     /**
      * This method is run before each test

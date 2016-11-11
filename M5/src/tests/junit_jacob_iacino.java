@@ -14,7 +14,7 @@ import org.junit.Test;
  */
 public class junit_jacob_iacino {
 
-    Model currModel;
+    private Model currModel;
 
     @Before
     /**

@@ -8,16 +8,16 @@ import javafx.beans.property.StringProperty;
  */
 public class Account {
     /** the account id*/
-    private StringProperty _id = new SimpleStringProperty();
+    private final StringProperty _id = new SimpleStringProperty();
 
     /** the account password*/
-    private StringProperty _password = new SimpleStringProperty();
+    private final StringProperty _password = new SimpleStringProperty();
 
     /** the account type for the account */
-    private StringProperty _accountType = new SimpleStringProperty();
+    private final StringProperty _accountType = new SimpleStringProperty();
 
     /** the account type for the account */
-    private Profile _profile = new Profile();
+    private final Profile _profile = new Profile();
 
     public Profile getProfile() {
         return _profile;
@@ -29,10 +29,10 @@ public class Account {
      * @param password the password of the account
      * @param accountType the accountType for the account
      */
-    public Account(String id, String password, AccountType accountType) {
+    public Account(String id, String password, String accountType) {
         _id.set(id);
         _password.set(password);
-        _accountType.set(accountType.getCode());
+        _accountType.set(accountType);
     }
 
     public Account(){}
