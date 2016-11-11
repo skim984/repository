@@ -44,7 +44,7 @@ public enum AccountType {
      *
      * @return the display string representation of the type
      */
-    public String toString() { return type; }
+    public String toString() { return this.getType(); }
 
 
 }
