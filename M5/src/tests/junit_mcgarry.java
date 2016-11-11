@@ -95,7 +95,7 @@ public class junit_mcgarry {
             test = true;
         }
 
-        //lat < 85, long < 180; should throw an error
+        //lat > 85, long > 180; shouldnt throw an error
         assertFalse(test);
     }
 
