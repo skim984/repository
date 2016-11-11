@@ -44,7 +44,7 @@ public class junit_sunpil_kim {
     }
 
     /**
-     * test findAccount with id that doesn't exist
+     * test findAccount with id that exists but wrong password
      */
     @Test
     public void testWrongPasswordAccount() {
@@ -52,7 +52,7 @@ public class junit_sunpil_kim {
     }
 
     /**
-     * test findAccount with id that doesn't exist
+     * test findAccount with correct id and password
      */
     @Test
     public void testCorrectIdPasswordAccount() {
