@@ -18,8 +18,8 @@ public class junit_sunpil_kim {
     /**
      * This method is run before each test
      * We know in the Account there exists an account that id: user password: pass
-     * We will test it with 5 ways.
-     * @throws Exception
+     * We will test it with 4 ways.
+     * @throws Exception when it doesn't set up
      */
     @Before
     public void setUp() throws Exception {

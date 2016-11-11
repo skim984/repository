@@ -9,9 +9,9 @@ public enum AccountType {
     MR ("MANAGER", "MR"),
     AD ("ADMINISTRATOR", "AD");
 
-    private final String type;
+    private String type;
 
-    private final String code;
+    private String code;
 
     /**
      * Constructor for the enumeration

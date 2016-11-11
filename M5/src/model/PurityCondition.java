@@ -8,8 +8,8 @@ public enum PurityCondition {
     TR ("Treatable", "TR"),
     US ("Unsafe", "US");
 
-    private final String type;
-    private final String code;
+    private String type;
+    private String code;
 
 
     /**

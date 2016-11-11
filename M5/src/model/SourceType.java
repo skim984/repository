@@ -10,9 +10,9 @@ public enum SourceType {
     LK ("Lake", "LK"),
     SP ("Spring", "SP"),
     OTH ("Other", "OTH");
-    private final String type;
+    private String type;
 
-    private final String code;
+    private String code;
 
     /**
      * Constructor for the enumeration
