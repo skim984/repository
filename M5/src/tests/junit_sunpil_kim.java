@@ -1,6 +1,5 @@
 package tests;
 
-import model.Account;
 import model.Model;
 import org.junit.Assert;
 import org.junit.Before;

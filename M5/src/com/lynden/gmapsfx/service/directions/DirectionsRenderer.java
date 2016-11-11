@@ -19,8 +19,6 @@ import com.lynden.gmapsfx.javascript.JavascriptObject;
 import com.lynden.gmapsfx.javascript.object.DirectionsPane;
 import com.lynden.gmapsfx.javascript.object.GMapObjectType;
 import com.lynden.gmapsfx.javascript.object.GoogleMap;
-import java.security.PrivilegedActionException;
-import javafx.scene.Node;
 import netscape.javascript.JSObject;
 
 /**

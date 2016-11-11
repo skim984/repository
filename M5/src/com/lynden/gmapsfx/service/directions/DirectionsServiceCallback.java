@@ -15,8 +15,6 @@
  */
 package com.lynden.gmapsfx.service.directions;
 
-import netscape.javascript.JSObject;
-
 /**
  *
  * @author Andre

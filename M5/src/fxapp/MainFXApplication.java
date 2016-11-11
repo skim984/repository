@@ -2,9 +2,7 @@ package fxapp;
 
 import controller.*;
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.LoadException;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
@@ -12,11 +10,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Account;
-
-
 import java.io.IOException;
-
-import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
