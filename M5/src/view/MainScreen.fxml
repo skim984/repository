@@ -1,62 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
-<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="705.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainScreenController">
-    <top>
-        <ToolBar prefHeight="25.0" prefWidth="600.0">
-         <BorderPane.margin>
-            <Insets />
-         </BorderPane.margin>
-         <padding>
-            <Insets bottom="5.0" left="10.0" top="5.0" />
-         </padding>
-        </ToolBar>
-    </top>
-   <bottom>
-      <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-        <buttons>
-            <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#btnLogoutAction" text="Logout" />
-        </buttons>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-         <padding>
-            <Insets bottom="5.0" left="15.0" right="15.0" top="5.0" />
-         </padding>
-      </ButtonBar>
-   </bottom>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="363.0" prefWidth="540.0" styleClass="homescreen" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainScreenController">
    <left>
-      <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <ButtonBar prefHeight="335.0" prefWidth="177.0" BorderPane.alignment="CENTER">
          <buttons>
-            <Pane prefHeight="200.0" prefWidth="200.0">
+            <Pane prefHeight="337.0" prefWidth="167.0">
                <children>
-                  <Button fx:id="createEditProfileButton" layoutX="8.0" layoutY="128.0" mnemonicParsing="false" onAction="#btnCreateEditProfileAction" text="Create / Edit Profile" />
+                  <Button fx:id="createEditProfileButton" layoutX="10.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnCreateEditProfileAction" prefHeight="25.0" prefWidth="138.0" text="Create / Edit Profile" />
+                  <Button fx:id="sourceButton" layoutX="10.0" layoutY="60.0" mnemonicParsing="false" onAction="#btnSourceAction" prefHeight="25.0" prefWidth="138.0" text="Submit Source Report" />
+                  <Button fx:id="purityButton" layoutX="10.0" layoutY="112.0" mnemonicParsing="false" onAction="#btnPurityAction" prefHeight="25.0" prefWidth="138.0" text="Submit Purity Report" />
+                  <Button fx:id="buttonViewReport" layoutX="9.0" layoutY="163.0" mnemonicParsing="false" onAction="#btnViewAction" prefHeight="25.0" prefWidth="138.0" text="View Reports" />
+                  <Button fx:id="buttonViewMap" layoutX="9.0" layoutY="215.0" mnemonicParsing="false" onAction="#btnMapAction" prefHeight="25.0" prefWidth="138.0" text="View Map" />
+                  <Button layoutX="9.0" layoutY="264.0" mnemonicParsing="false" onAction="#btnHistInitAction" text="View Historical Reports" />
+                  <Button fx:id="logoutButton" layoutX="9.0" layoutY="314.0" mnemonicParsing="false" onAction="#btnLogoutAction" prefHeight="25.0" prefWidth="138.0" text="Logout" />
                </children>
             </Pane>
          </buttons>
       </ButtonBar>
    </left>
    <center>
-      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="sourceButton" layoutX="63.0" layoutY="94.0" mnemonicParsing="false" onAction="#btnSourceAction" text="Submit Source Report" />
-            <Button fx:id="purityButton" layoutX="66.0" layoutY="172.0" mnemonicParsing="false" onAction="#btnPurityAction" text="Submit Purity Report" />
-         </children>
-      </Pane>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
    <right>
-      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="buttonViewReport" layoutX="59.0" layoutY="94.0" mnemonicParsing="false" onAction="#btnViewAction" text="View Reports" />
-            <Button fx:id="buttonViewMap" layoutX="70.0" layoutY="176.0" mnemonicParsing="false" onAction="#btnMapAction" text="View Map" />
-            <Button layoutX="26.0" layoutY="248.0" mnemonicParsing="false" onAction="#btnHistInitAction" text="View Historical Reports" />
-         </children>
-      </Pane>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </right>
 </BorderPane>

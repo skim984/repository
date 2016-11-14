@@ -12,11 +12,11 @@
    <children>
       <ButtonBar layoutY="353.0" prefHeight="47.0" prefWidth="592.0">
         <buttons>
-          <Button mnemonicParsing="false" onAction="#handleOKPressed" text="OK" />
+          <Button mnemonicParsing="false" onAction="#handleOKPressed" text="Submit" />
             <Button mnemonicParsing="false" onAction="#handleCancelPressed" text="Cancel" />
         </buttons>
       </ButtonBar>
-      <Text layoutX="196.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Purity Report Page">
+      <Text layoutX="225.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Purity Report">
          <font>
             <Font size="21.0" />
          </font>

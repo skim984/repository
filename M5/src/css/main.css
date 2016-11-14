@@ -9,3 +9,7 @@
 .button {
     -fx-background-color: #FFF
 }
+
+.homescreen {
+    -fx-background-image: url("../img/home_screen_bg.png");
+}
