@@ -3,7 +3,13 @@ package tests;
 import model.Model;
 import model.Report;
 import model.PurityReport;
+import model.SourceReport;
+import model.PurityCondition;
+import model.SourceCondition;
+import model.SourceType;
 import static org.junit.Assert.assertEquals;
+
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,24 +32,27 @@ public class junit_jacob_iacino {
     }
 
     /**
-     * test if the report actually gets added to the backing list
+     * test if the purity report actually gets added to the backing list
      */
     @Test
-    public void testAdditionToList() {
+    public void testAdditionToListPurityReport() {
         PurityReport report = new PurityReport("testUser");
-        report.setID(1);
+        report.setID(710);
         currModel.addPurityReport(report);
-        Assert.assertNotNull(currModel.findReport("testUser", 1));
+        Assert.assertNotNull(currModel.findReport("testUser", 710));
+        currModel.removeReport(report);
     }
 
     /**
-     * test the incrementation of report numbers to ensure duplicate numbers do not happen
+     * test if the source report actually gets added to the backing list
      */
     @Test
-    public void testReportNumberIncrementation() {
-        PurityReport report = new PurityReport("testUser");
-        report.setID(1);
-        currModel.addPurityReport(report);
-        Assert.assertNotNull(currModel.findReport("testUser", 2));
+    public void testAdditionToListSourceReport() {
+        SourceReport report = new SourceReport("testUser");
+        report.setID(725);
+        currModel.addSourceReport(report);
+        Assert.assertNotNull(currModel.findReport("testUser", 725));
+        currModel.removeReport(report);
     }
+
 }

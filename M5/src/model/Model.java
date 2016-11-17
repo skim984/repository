@@ -166,7 +166,10 @@ public class Model {
             preparedStatement.setString(1, Integer.toString(report.getId()));
             preparedStatement.setString(2, Integer.toString(report.getVPPM()));
             preparedStatement.setString(3, Integer.toString(report.getCPPM()));
-            preparedStatement.setString(4, report.getpCond().getCode());
+            if (report.getpCond() != null) {
+                preparedStatement.setString(4, report.getpCond().getCode());
+            }
+
 
             //execute insert SQL Statement
             preparedStatement.executeUpdate();
@@ -214,8 +217,11 @@ public class Model {
             preparedStatement = connection.prepareStatement(insertTableSQL);
 
             preparedStatement.setString(1, Integer.toString(report.getId()));
-            preparedStatement.setString(2, report.getSt().getCode());
-            preparedStatement.setString(3, report.getSc().getCode());
+            if (report.getSc() != null && report.getSt() != null) {
+                preparedStatement.setString(2, report.getSt().getCode());
+                preparedStatement.setString(3, report.getSc().getCode());
+            }
+
 
             //execute insert SQL Statement
             preparedStatement.executeUpdate();
@@ -368,6 +374,10 @@ public class Model {
             }
         }
         return null;
+    }
+
+    public void removeReport (Report r) {
+        reportsList.remove(r);
     }
 
     public List<Report> findReportByUser(String reporterName) {
